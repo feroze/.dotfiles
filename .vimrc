@@ -1,4 +1,7 @@
-set t_Co=256              " enable 256-color mode.
+if $TERM == "xterm-256color"
+  set t_Co=256
+endif
+
 syntax enable             " enable syntax highlighting (previously syntax on).
 colorscheme desert        " set colorscheme
 set number                " show line numbers
@@ -46,6 +49,10 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
 " Plugin 'user/L9', {'name': 'newL9'}
+
+" For color schemes
+Plugin 'flazz/vim-colorschemes'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
