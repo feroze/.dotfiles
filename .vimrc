@@ -6,7 +6,7 @@ syntax enable             " enable syntax highlighting (previously syntax on).
 colorscheme desert        " set colorscheme
 set number                " show line numbers
 set laststatus=2          " last window always has a statusline
-filetype indent on        " activates indenting for files
+
 set nohlsearch            " Don't continue to highlight searched phrases.
 set incsearch             " But do highlight as you type your search.
 set ignorecase            " Make searches case-insensitive.
@@ -19,6 +19,9 @@ set shiftround            " always indent/outdent to the nearest tabstop
 set expandtab             " use spaces instead of tabs
 set smarttab              " use tabs at the start of a line, spaces elsewhere
 set nowrap                " don't wrap text
+
+let mapleader=","         " set comma as leaderkey for nerdcommenter
+
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -34,21 +37,14 @@ Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
 
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
+" Git plugin
+Plugin 'tpope/vim-fugitive'
 
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-" Plugin 'user/L9', {'name': 'newL9'}
+" Comment plugin
+Plugin 'scrooloose/nerdcommenter'
+
+
 
 " For color schemes
 Plugin 'flazz/vim-colorschemes'
@@ -57,6 +53,3 @@ Plugin 'flazz/vim-colorschemes'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
