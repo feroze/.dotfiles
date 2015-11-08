@@ -111,3 +111,15 @@ source ~/catkin_ws/devel/setup.bash
 alias pr2master="export ROS_MASTER_URI=http://alan1:11311 ; export ROBOT=robot ; export ROS_IP=`ifconfig wlan0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'`" 
 alias dashboard="rosrun pr2_dashboard pr2_dashboard" 
 alias cm="cd ~/catkin_ws/; catkin_make; cd -"
+
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias go='git checkout '
+alias gk='gitk --all&'
+alias gx='gitx --all'
+
+alias got='git '
+alias get='git '
