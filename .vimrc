@@ -1,9 +1,4 @@
-if $TERM == "xterm-256color"
-  set t_Co=256
-endif
-
 syntax enable             " enable syntax highlighting (previously syntax on).
-colorscheme desert        " set colorscheme
 set number                " show line numbers
 set laststatus=2          " last window always has a statusline
 
@@ -46,10 +41,15 @@ Plugin 'scrooloose/nerdcommenter'
 
 
 
-" For color schemes
-Plugin 'flazz/vim-colorschemes'
+" For solarized
+Plugin 'altercation/vim-colors-solarized.git'
 
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" Enable solarized scheme
+syntax enable
+set background=dark
+colorscheme solarized
