@@ -13,3 +13,5 @@ Use :Ex to navigate file system
 Use CtrlP for quick file navigation
 use ,c to comment
 
+TODO:
+Setup shell script to auto copy links and backup old ones
