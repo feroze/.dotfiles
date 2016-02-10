@@ -106,7 +106,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-source /opt/ros/groovy/setup.bash
+source /opt/ros/indigo/setup.bash
 source ~/catkin_ws/devel/setup.bash
 
 alias cm="cd ~/catkin_ws/; catkin_make; cd -"
