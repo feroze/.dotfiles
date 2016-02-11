@@ -19,11 +19,14 @@ Plugin 'tpope/vim-fugitive'
 " Comment plugin
 Plugin 'scrooloose/nerdcommenter'
 
+" For solarized
+Plugin 'altercation/vim-colors-solarized.git'
+
 " Ctrl P
 Plugin 'ctrlpvim/ctrlp.vim'
 
-" For solarized
-Plugin 'altercation/vim-colors-solarized.git'
+" Autocomplete
+" Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -53,4 +56,24 @@ set nowrap                " don't wrap text
 
 let mapleader=","         " set comma as leaderkey for nerdcommenter
 
+" Special python for robo autonomy
+autocmd Filetype python setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
+" for YouCompleteMe
+" let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
+" execute cpp
+autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+
+" swap semicolon and colon
+nnoremap ; :
+nnoremap : ;
+
+" To change directory to current file
+autocmd BufEnter * silent! lcd %:p:h
+
+" Navigate split windows with Ctrl + hjkl
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
