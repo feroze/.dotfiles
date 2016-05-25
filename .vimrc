@@ -29,6 +29,9 @@ Plugin 'ctrlpvim/ctrlp.vim'
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 Plugin 'Valloric/YouCompleteMe'
 
+" vim-tmux-navigator
+Plugin 'christoomey/vim-tmux-navigator'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

@@ -18,6 +18,8 @@ Split into two files:
 mi - colormake install
 cm - catkin_make at catkin_ws directory
 
+tmux is configured to force 256 colors
+
 ## vim ##
 
 Plugins being used:
@@ -49,3 +51,6 @@ use ,c to toggle comment a line
 
 Use :Ex to explore file system
 
+
+## Shortcuts ##
+cd $(fn *str*) will go to first occurence

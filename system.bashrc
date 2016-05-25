@@ -13,3 +13,6 @@ alias ....='cd ../../../../'
 alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
+
+## correct tmux
+alias tmux='tmux -2'
