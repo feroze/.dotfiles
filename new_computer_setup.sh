@@ -2,7 +2,13 @@
 
 # This was written for ubuntu 14.04
 
+read -p 'update repo? (Y/n) ' -n 1 confirmation                                                                                     
+if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
 sudo apt-get update
+fi
+
+###
+echo " "
 
 read -p 'Install chrome? (Y/n) ' -n 1 confirmation                                                                                     
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
@@ -57,5 +63,14 @@ read -p 'Install ack and rename? (Y/n) ' -n 1 confirmation
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
 	sudo apt-get install -y ack-grep
 	sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
+fi
+
+###
+# add another for shortcuts and vim and git cloning and stuff
+echo " "
+
+read -p 'install all vundle plugins? (Y/n) ' -n 1 confirmation                                                                                     
+if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
+vim +PluginInstall +qall
 fi
 
