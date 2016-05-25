@@ -5,6 +5,8 @@ TODO:
 Setup shell script to auto copy links and backup old ones
 fix stupid colors
 swap fn and ctrl in t420
+write script to link .bashrc stuff from home to .dotfiles directory
+also write a script to swap profiles easily
 
 --
 New computer:
