@@ -26,7 +26,8 @@ Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'ctrlpvim/ctrlp.vim'
 
 " Autocomplete
-" Plugin 'Valloric/YouCompleteMe'
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -34,7 +35,9 @@ filetype plugin indent on    " required
 
 " Enable solarized scheme
 syntax enable
-set background=dark
+"set background=dark
+let g:solarized_termcolors=256
+set t_Co=256
 colorscheme solarized
 
 syntax enable             " enable syntax highlighting (previously syntax on).
