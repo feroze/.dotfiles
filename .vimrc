@@ -32,6 +32,9 @@ Plugin 'Valloric/YouCompleteMe'
 " vim-tmux-navigator
 Plugin 'christoomey/vim-tmux-navigator'
 
+" a.vim for fast file switching
+Plugin 'a.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -69,7 +72,10 @@ autocmd Filetype python setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 " let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 " execute cpp
-autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+" autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+
+" Create swap files in a different tmp directory
+set directory^=$HOME/.vim/tmp//
 
 " swap semicolon and colon
 nnoremap ; :

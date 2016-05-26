@@ -37,6 +37,10 @@ Compile YCM and add ycm_config_file
 
 Read through .vimrc to understand shortcuts and settings
 
+Create a .vim/tmp file to store annoying swaps
+
+use :A to switch to C/CPP header files
+
 ### NERDTree ###
 
 ### Ctrl-P ###
