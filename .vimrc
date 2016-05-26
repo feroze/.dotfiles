@@ -77,6 +77,9 @@ autocmd Filetype python setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 " Create swap files in a different tmp directory
 set directory^=$HOME/.vim/tmp//
 
+" Ignore object files for ctrl-P
+set wildignore+=*.so,*.swp,*.zip,*.o     " MacOSX/Linux
+
 " swap semicolon and colon
 nnoremap ; :
 nnoremap : ;
