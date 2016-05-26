@@ -14,5 +14,7 @@ alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 
-## correct tmux
+## correct tmux colors for 256
 alias tmux='tmux -2'
+
+alias quit='exit'
