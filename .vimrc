@@ -95,3 +95,10 @@ nnoremap <C-H> <C-W><C-H>
 
 " Recognize .md files as markdown
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+
+" Enable code folding
+set foldmethod=syntax
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+set mouse=a

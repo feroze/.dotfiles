@@ -57,6 +57,8 @@ use ,c to toggle comment a line
 
 Use :Ex to explore file system
 
+### code folding ###
+Then you can toggle folding with za. You can fold everything with zM and unfold everything with zR. zm and zr can be used to get those folds just right
 
 ## Shortcuts ##
 cd $(fn *str*) will go to first occurence
