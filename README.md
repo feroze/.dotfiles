@@ -62,3 +62,19 @@ Then you can toggle folding with za. You can fold everything with zM and unfold 
 
 ## Shortcuts ##
 cd $(fn *str*) will go to first occurence
+
+## other new computer stuff ##
+
+install tmux. start it at every bash start
+install ros
+install git. change gitconfig.
+make install script for ROS
+change bashrc - put aliases shortcuts
+install vim.  fixup vimrc
+maintain a set of files on github for dotfiles. keep it simple and useful.
+sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep 
+
+vim-gtk
+
+network – Don’t press available to all users
+enable middle click
