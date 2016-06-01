@@ -68,8 +68,8 @@ set nowrap                " don't wrap text
 
 let mapleader=","         " set comma as leaderkey for nerdcommenter
 
-" Special python for robo autonomy
-autocmd Filetype python setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+" different indent settings for python 
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 " for YouCompleteMe
 " let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
