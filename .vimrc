@@ -99,6 +99,9 @@ nnoremap <C-H> <C-W><C-H>
 " Recognize .md files as markdown
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
+" Recognize arduino and .tpp files as cpp
+autocmd BufNewFile,BufReadPost *.ino,*.pde,*.tpp set filetype=cpp
+
 " Enable code folding
 set foldmethod=syntax
 set foldnestmax=10      "deepest fold is 10 levels
