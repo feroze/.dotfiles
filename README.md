@@ -78,3 +78,6 @@ vim-gtk
 
 network – Don’t press available to all users
 enable middle click
+
+# TODO #
+Add commands to close vim buffer without closing split

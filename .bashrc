@@ -109,7 +109,5 @@ fi
 source /opt/ros/indigo/setup.bash
 source ~/catkin_ws/devel/setup.bash
 
-alias cm="cd ~/catkin_ws/; catkin_make; cd -"
-
 source ~/.dotfiles/system.bashrc
 source ~/.dotfiles/git.bashrc
