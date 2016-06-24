@@ -112,5 +112,5 @@ set mouse=a
 
 set hlsearch " allows you to search for word under curso with*
 
-" <Ctrl-l> redraws the screen and removes any search highlighting.
-nnoremap <silent> <C-l> :nohl<CR><C-l>
+" <F3> redraws the screen and removes any search highlighting.
+nnoremap <F3> :set hlsearch!<CR>
