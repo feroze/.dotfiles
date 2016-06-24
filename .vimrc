@@ -83,9 +83,9 @@ set directory^=$HOME/.vim/tmp//
 " Ignore object files for ctrl-P
 set wildignore+=*.so,*.swp,*.zip,*.o     " MacOSX/Linux
 
-" swap semicolon and colon
-nnoremap ; :
-nnoremap : ;
+" swap semicolon and colon - evil. don't do!
+"nnoremap ; :
+"nnoremap : ;
 
 " To change directory to current file
 autocmd BufEnter * silent! lcd %:p:h
