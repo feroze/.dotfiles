@@ -109,3 +109,8 @@ set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 set mouse=a
 "let c_no_comment_fold=1 "dont fold comments
+
+set hlsearch " allows you to search for word under curso with*
+
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
