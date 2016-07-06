@@ -38,6 +38,12 @@ Plugin 'a.vim'
 " ack for searching
 Plugin 'mileszs/ack.vim'
 
+" vim-bufferline show buffers in bottom
+"Plugin 'bling/vim-bufferline'
+
+" minibufexplorer
+Plugin 'https://github.com/fholgado/minibufexpl.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
