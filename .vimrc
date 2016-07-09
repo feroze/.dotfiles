@@ -42,7 +42,7 @@ Plugin 'mileszs/ack.vim'
 "Plugin 'bling/vim-bufferline'
 
 " minibufexplorer
-Plugin 'https://github.com/fholgado/minibufexpl.vim'
+Plugin 'fholgado/minibufexpl.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -81,7 +81,7 @@ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 " let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 " execute cpp
-" autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+ autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
 " Create swap files in a different tmp directory
 set directory^=$HOME/.vim/tmp//
