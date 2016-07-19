@@ -81,7 +81,8 @@ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 " let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 " execute cpp
- autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ -std=c++11 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype python nnoremap <F4> :w <bar> exec '!python '.shellescape('%')<CR>
 
 " Create swap files in a different tmp directory
 set directory^=$HOME/.vim/tmp//
