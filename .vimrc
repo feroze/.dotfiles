@@ -45,7 +45,7 @@ Plugin 'mileszs/ack.vim'
 "Plugin 'fholgado/minibufexpl.vim'
 
 " vim-buftabline
-Plugin 'ap/vim-buftabline'
+"Plugin 'ap/vim-buftabline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
