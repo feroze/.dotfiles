@@ -42,7 +42,10 @@ Plugin 'mileszs/ack.vim'
 "Plugin 'bling/vim-bufferline'
 
 " minibufexplorer
-Plugin 'fholgado/minibufexpl.vim'
+"Plugin 'fholgado/minibufexpl.vim'
+
+" vim-buftabline
+Plugin 'ap/vim-buftabline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -121,3 +124,8 @@ set hlsearch " allows you to search for word under curso with*
 
 " <F3> redraws the screen and removes any search highlighting.
 nnoremap <F3> :set hlsearch!<CR>
+
+" for vim-buftabline
+set hidden
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
