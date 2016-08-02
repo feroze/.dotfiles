@@ -129,3 +129,6 @@ nnoremap <F3> :set hlsearch!<CR>
 set hidden
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
+
+" Delete buffer without closing script
+nnoremap <C-c> :bp\|bd #<CR>
