@@ -132,3 +132,5 @@ nnoremap <C-P> :bprev<CR>
 
 " Delete buffer without closing script
 nnoremap <C-c> :bp\|bd #<CR>
+
+let g:ctrlp_switch_buffer = 't'
