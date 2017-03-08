@@ -19,3 +19,10 @@ alias .5='cd ../../../../..'
 alias tmux='tmux -2'
 
 alias quit='exit'
+
+# Manage source files
+alias bashrc='vim ~/.bashrc'
+alias sourcebashrc='source ~/.bashrc'
+
+# Alias for devlog
+alias devlog="vim `date +~/devlog/%d-%b-%y.txt`"
