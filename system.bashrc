@@ -25,5 +25,7 @@ alias quit='exit'
 alias bashrc='vim ~/.bashrc'
 alias sourcebashrc='source ~/.bashrc'
 
+alias vimrc='vim ~/.vimrc'
+
 # Alias for devlog
 alias devlog="vim `date +~/devlog/%d-%b-%y.txt`"

@@ -13,9 +13,6 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 
-" Git plugin
-Plugin 'tpope/vim-fugitive'
-
 " Comment plugin
 Plugin 'scrooloose/nerdcommenter'
 
@@ -29,23 +26,15 @@ Plugin 'ctrlpvim/ctrlp.vim'
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 Plugin 'Valloric/YouCompleteMe'
 
-" vim-tmux-navigator
-Plugin 'christoomey/vim-tmux-navigator'
-
 " a.vim for fast file switching
 Plugin 'a.vim'
 
-" ack for searching
-Plugin 'mileszs/ack.vim'
+" airline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
-" vim-bufferline show buffers in bottom
-"Plugin 'bling/vim-bufferline'
-
-" minibufexplorer
-"Plugin 'fholgado/minibufexpl.vim'
-
-" vim-buftabline
-"Plugin 'ap/vim-buftabline'
+" tagbar - displays all the class names in rhs. Press F8 to display
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -53,10 +42,10 @@ filetype plugin indent on    " required
 
 " Enable solarized scheme
 syntax enable
-"set background=dark
+set background=dark
+colorscheme solarized
 let g:solarized_termcolors=256
 set t_Co=256
-colorscheme solarized
 
 syntax enable             " enable syntax highlighting (previously syntax on).
 set number                " show line numbers
@@ -90,7 +79,7 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 
 " for YouCompleteMe
-" let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 " execute cpp
 autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ -std=c++11 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
@@ -101,10 +90,6 @@ set directory^=$HOME/.vim/tmp//
 
 " Ignore object files for ctrl-P
 set wildignore+=*.so,*.swp,*.zip,*.o     " MacOSX/Linux
-
-" swap semicolon and colon - evil. don't do!
-"nnoremap ; :
-"nnoremap : ;
 
 " To change directory to current file
 autocmd BufEnter * silent! lcd %:p:h
@@ -134,12 +119,10 @@ set hlsearch " allows you to search for word under curso with*
 " <F3> redraws the screen and removes any search highlighting.
 nnoremap <F3> :set hlsearch!<CR>
 
-" for vim-buftabline
-set hidden
-nnoremap <C-N> :bnext<CR>
-nnoremap <C-P> :bprev<CR>
-
 " Delete buffer without closing script
 nnoremap <C-c> :bp\|bd #<CR>
 
 let g:ctrlp_switch_buffer = 't'
+
+" Map F8 to start Tagbar
+nmap <F8> :TagbarToggle<CR>
