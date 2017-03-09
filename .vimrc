@@ -4,8 +4,6 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -21,6 +19,12 @@ Plugin 'altercation/vim-colors-solarized.git'
 
 " Ctrl P
 Plugin 'ctrlpvim/ctrlp.vim'
+
+" Fugitive
+Plugin 'tpope/vim-fugitive.git'
+
+" Surround
+Plugin 'tpope/vim-surround.git'
 
 " Autocomplete
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
@@ -42,7 +46,7 @@ filetype plugin indent on    " required
 
 " Enable solarized scheme
 syntax enable
-set background=dark
+"set background=dark
 colorscheme solarized
 let g:solarized_termcolors=256
 set t_Co=256

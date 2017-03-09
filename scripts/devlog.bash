@@ -4,14 +4,16 @@ cd ~/devlog/
 
 TODAY="$(date +%w)"
 WEEKNUM="$(date +%W)"
-FILENAME="week-$WEEKNUM.txt"
+FILENAME="week-$WEEKNUM.md"
 #echo "${FILENAME}"
 
 HEADER="$(date +%d-%b)"
 
 if [ ! -f $FILENAME ]; then
   echo "File not found!"
-  echo "###$HEADER###" >> $FILENAME
+  echo "# Week $WEEKNUM #" >> $FILENAME
+  echo "" >> $FILENAME
+  echo "## $HEADER ##" >> $FILENAME
   echo "" >> $FILENAME
   echo "" >> $FILENAME
 
@@ -24,7 +26,7 @@ else
     echo "File was NOT modified today. So append stuff to it."
     echo "" >> $FILENAME
     echo "" >> $FILENAME
-    echo "###$HEADER###" >> $FILENAME
+    echo "## $HEADER ##" >> $FILENAME
     echo "" >> $FILENAME
     echo "" >> $FILENAME
   #else

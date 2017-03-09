@@ -27,5 +27,9 @@ alias sourcebashrc='source ~/.bashrc'
 
 alias vimrc='vim ~/.vimrc'
 
+# Make caps and extra esc
+alias caps='setxkbmap -option caps:escape'
+
+
 # Alias for devlog
 alias devlog="~/.dotfiles/scripts/devlog.bash"
