@@ -32,5 +32,5 @@ alias caps='setxkbmap -option caps:escape'
 
 
 # Alias for personal logs
-alias devlog="~/.dotfiles/scripts/devlog.bash devlog"
+alias devlog="~/.dotfiles/scripts/log.bash devlog"
 alias bbtlog="~/.dotfiles/scripts/log.bash bbtlog"
