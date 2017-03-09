@@ -17,23 +17,27 @@ if [ ! -f $FILENAME ]; then
   echo "" >> $FILENAME
   echo "" >> $FILENAME
 
+  vim + -c 'startinsert' $FILENAME
+
 else
   FILELASTMODIFIED="$(date -r $FILENAME +%w)"
     #echo "TODAY=$TODAY FILELASTMODIFIED=$FILELASTMODIFIED"
   
   if [ $TODAY -ne $FILELASTMODIFIED ]; then
 
-    echo "File was NOT modified today. So append stuff to it."
+    #echo "File was NOT modified today. So append stuff to it."
     echo "" >> $FILENAME
     echo "" >> $FILENAME
     echo "## $HEADER ##" >> $FILENAME
     echo "" >> $FILENAME
     echo "" >> $FILENAME
-  #else
+
+    vim + -c 'startinsert' $FILENAME
+  else
     #echo "File was modified today!"
+    vim + $FILENAME
   fi
 fi
 
-vim + -c 'startinsert' $FILENAME
 
 cd -
