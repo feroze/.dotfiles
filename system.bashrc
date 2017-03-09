@@ -28,4 +28,4 @@ alias sourcebashrc='source ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
 
 # Alias for devlog
-alias devlog="vim `date +~/devlog/%d-%b-%y.txt`"
+alias devlog="~/.dotfiles/scripts/devlog.bash"
