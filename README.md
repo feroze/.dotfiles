@@ -85,3 +85,7 @@ Add commands to close vim buffer without closing split
 Add vim shortcut/plugin for jump to definition in source
 
 Add meld as default git diff tool
+
+# repos
+
+add i3 ubuntu repo for latest version

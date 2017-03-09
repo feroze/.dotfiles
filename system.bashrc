@@ -1,6 +1,7 @@
 alias mi="colormake install"
 alias cm="cd ~/catkin_ws/; catkin_make; cd -"
 alias cb="cd ~/catkin_ws/; catkin build; cd -"
+alias cc="cd ~/catkin_ws/; catkin clean -y; cd -"
 
 alias fn="find -name"
 

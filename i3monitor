@@ -1,16 +1,16 @@
 #!/bin/bash
 
-EXTERNAL_OUTPUT="HDMI1"
-INTERNAL_OUTPUT="eDP1"
+#EXTERNAL_OUTPUT="HDMI1"
+#INTERNAL_OUTPUT="eDP1"
 
 # if we don't have a file, start at zero
-if [ ! -f "/tmp/monitor_mode.dat" ] ; then
-  monitor_mode="all"
+#if [ ! -f "/tmp/monitor_mode.dat" ] ; then
+#  monitor_mode="all"
 
 # otherwise read the value from the file
-else
-  monitor_mode=`cat /tmp/monitor_mode.dat`
-fi
+#else
+#  monitor_mode=`cat /tmp/monitor_mode.dat`
+#fi
 
 #if [ $monitor_mode = "all" ]; then
         #monitor_mode="EXTERNAL"
@@ -27,4 +27,8 @@ fi
 #fi
 #echo "${monitor_mode}" > /tmp/monitor_mode.dat
 
-xrandr --output $INTERNAL_OUTPUT --auto --below $EXTERNAL_OUTPUT
+#xrandr --output $INTERNAL_OUTPUT --auto --below $EXTERNAL_OUTPUT
+
+xrandr | grep -q "DP2 connected" && xrandr --output eDP1 --auto --output DP2 --auto --above eDP1
+
+
