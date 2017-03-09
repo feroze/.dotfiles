@@ -31,5 +31,6 @@ alias vimrc='vim ~/.vimrc'
 alias caps='setxkbmap -option caps:escape'
 
 
-# Alias for devlog
-alias devlog="~/.dotfiles/scripts/devlog.bash"
+# Alias for personal logs
+alias devlog="~/.dotfiles/scripts/devlog.bash devlog"
+alias bbtlog="~/.dotfiles/scripts/log.bash bbtlog"

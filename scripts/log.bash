@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/devlog/
+cd ~/$1/
 
 TODAY="$(date +%w)"
 WEEKNUM="$(date +%W)"
