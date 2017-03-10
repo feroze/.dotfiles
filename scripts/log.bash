@@ -35,7 +35,8 @@ else
     vim + -c 'startinsert' $FILENAME
   else
     #echo "File was modified today!"
-    vim + $FILENAME
+    echo "" >> $FILENAME
+    vim + -c 'startinsert' $FILENAME
   fi
 fi
 
