@@ -169,7 +169,8 @@ exec --no-startup-id blueman-applet
 bindsym $mod+Control+l exec i3lock -d
 
 # disable monitor. use only external
-bindsym $mod+Shift+s exec --no-startup-id /home/feroze/.dotfiles/i3monitor
+#bindsym $mod+Shift+s exec --no-startup-id /home/feroze/.dotfiles/i3monitor
+exec --no-startup-id /home/feroze/.dotfiles/i3monitor
 
 # Enable floating for certain windows
 for_window [title="opencv-show"] floating enable
