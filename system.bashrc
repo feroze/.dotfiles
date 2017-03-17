@@ -1,4 +1,7 @@
 alias mi="colormake install"
+alias mi4="colormake install -j4"
+alias m="colormake"
+alias m4="colormake -j4"
 alias cm="cd ~/catkin_ws/; catkin_make; cd -"
 alias cb="cd ~/catkin_ws/; catkin build; cd -"
 alias cc="cd ~/catkin_ws/; catkin clean -y; cd -"
@@ -33,4 +36,4 @@ alias caps='setxkbmap -option caps:escape'
 
 # Alias for personal logs
 alias devlog="~/.dotfiles/scripts/log.bash devlog"
-alias bbtlog="~/.dotfiles/scripts/log.bash bbtlog"
+alias worklog="~/.dotfiles/scripts/log.bash worklog"

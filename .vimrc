@@ -40,6 +40,9 @@ Plugin 'vim-airline/vim-airline-themes'
 " tagbar - displays all the class names in rhs. Press F8 to display
 Plugin 'majutsushi/tagbar'
 
+" Syntastic - syntax Cpp validator
+Plugin 'scrooloose/syntastic'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

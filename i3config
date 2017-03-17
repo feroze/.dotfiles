@@ -173,6 +173,7 @@ bindsym $mod+Shift+s exec --no-startup-id /home/feroze/.dotfiles/i3monitor
 
 # Enable floating for certain windows
 for_window [title="opencv-show"] floating enable
+for_window [title="Navio TKA Application - Version 4.1.1"] floating enable
 
 gaps inner 10
 gaps outer 0

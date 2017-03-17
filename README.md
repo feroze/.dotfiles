@@ -89,3 +89,6 @@ Add meld as default git diff tool
 # repos
 
 add i3 ubuntu repo for latest version
+
+
+# swap caps
