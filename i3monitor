@@ -31,6 +31,8 @@
 
 if [[ $(hostname -s) != feroze-desktop ]]; then
   xrandr | grep -q "DP2 connected" && xrandr --output eDP1 --auto --output DP2 --auto --above eDP1
+else
+  xrandr --output DP-0 --rotate-left
 fi
 
 
