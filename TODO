@@ -12,4 +12,4 @@ use apt instead of apt-get??
 
 map ctrl + " + y to y in vim
 
-Fix ack workflow
+Fix ack workflow. Consider using silversearcher
