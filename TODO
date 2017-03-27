@@ -11,3 +11,5 @@ zathura is a nice vim -based pdf viewer
 use apt instead of apt-get??
 
 map ctrl + " + y to y in vim
+
+Fix ack workflow
