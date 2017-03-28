@@ -124,3 +124,6 @@ let g:ctrlp_switch_buffer = 't'
 
 " Map F8 to start Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" Use X clipboard system for peace
+set clipboard=unnamedplus
