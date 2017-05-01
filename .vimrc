@@ -127,3 +127,6 @@ nmap <F8> :TagbarToggle<CR>
 
 " Use X clipboard system for peace
 set clipboard=unnamedplus
+
+" disable automatic comment insertion
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
