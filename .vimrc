@@ -43,15 +43,18 @@ Plugin 'majutsushi/tagbar'
 " Syntastic - syntax Cpp validator
 Plugin 'scrooloose/syntastic'
 
+" Sleuth to heuristically set file indendation options
+Plugin 'tpop/vim-sleuth'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Enable solarized scheme
 syntax enable
-"set background=dark
-colorscheme solarized
 let g:solarized_termcolors=256
+colorscheme solarized
+set background=light
 set t_Co=256
 
 syntax enable             " enable syntax highlighting (previously syntax on).

@@ -163,11 +163,12 @@ exec --no-startup-id dropbox start
 exec --no-startup-id compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id fluxgui
+#exec --no-startup-id fluxgui
+exec --no-startup-id redshift
 
 
 # lock on alt+ctrl+l
-bindsym $mod+Control+l exec i3lock -d
+bindsym $mod+Control+l exec i3lock -d -c 000000
 
 # disable monitor. use only external
 #bindsym $mod+Shift+s exec --no-startup-id /home/feroze/.dotfiles/i3monitor
@@ -180,3 +181,5 @@ for_window [title="Navio TKA Application - Version 4.1.1"] floating enable
 gaps inner 10
 gaps outer 0
 smart_gaps on
+
+exec --no-startup-id i3-msg 'workspace 1; exec google-chrome https://www.toggl.com/app/timer --new-window; exec google-chrome https://calendar.google.com/calendar/render#g --new-window;'
