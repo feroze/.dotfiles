@@ -42,3 +42,7 @@ alias devlog="~/.dotfiles/scripts/log.bash devlog"
 alias worklog="~/.dotfiles/scripts/log.bash worklog"
 alias journal="~/.dotfiles/scripts/log.bash journal"
 alias rapidlearner="~/.dotfiles/scripts/log.bash rapidlearner"
+
+# Aliases for xclip
+alias "c=xclip"
+alias "v=xclip -o"
