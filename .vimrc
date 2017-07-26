@@ -104,6 +104,9 @@ nnoremap <C-H> <C-W><C-H>
 " Recognize .md files as markdown
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
+" Recognize .bashrc files as sh
+au BufNewFile,BufFilePre,BufRead *.bashrc set filetype=sh
+
 " Recognize arduino and .tpp files as cpp
 autocmd BufNewFile,BufReadPost *.ino,*.pde,*.tpp set filetype=cpp
 
@@ -130,3 +133,6 @@ nmap <F8> :TagbarToggle<CR>
 
 " Use X clipboard system for peace
 set clipboard=unnamedplus
+
+" disable automatic comment insertion
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
