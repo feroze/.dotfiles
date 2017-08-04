@@ -136,3 +136,6 @@ set clipboard=unnamedplus
 
 " disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" show cpp documentation using cppman by pressing Shift + K
+autocmd FileType cpp set keywordprg=cppman
