@@ -83,3 +83,5 @@ if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
   vim +PluginInstall +qall
 fi
 
+
+#TODO install autolock

@@ -158,8 +158,8 @@ bar {
 
 
 exec --no-startup-id setxkbmap -option caps:escape
-#exec --no-startup-id feh --randomize --bg-scale ~/wallpapers/*
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id feh --randomize --bg-scale ~/wallpapers/*
+#exec --no-startup-id nitrogen --restore
 exec --no-startup-id dropbox start
 exec --no-startup-id compton -b
 exec --no-startup-id nm-applet
@@ -169,7 +169,10 @@ exec --no-startup-id redshift
 
 
 # lock on alt+ctrl+l
-bindsym $mod+Control+l exec i3lock -d -c 000000
+bindsym $mod+Control+l exec ~/.dotfiles/fuzzy_lock.sh
+
+# lock on computer inactivity
+exec xautolock -time 10 -locker '~/.dotfiles/fuzzy_lock.sh' & # If computer idle for 10 minutes, lock it
 
 # disable monitor. use only external
 #bindsym $mod+Shift+s exec --no-startup-id /home/feroze/.dotfiles/i3monitor
