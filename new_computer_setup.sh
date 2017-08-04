@@ -66,11 +66,20 @@ if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
 fi
 
 ###
+echo " "
+
+read -p 'Install Ag Silversearcher and rename? (Y/n) ' -n 1 confirmation                                                                                     
+if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
+	sudo apt-get install -y silversearcher-ag
+fi
+
+###
 # add another for shortcuts and vim and git cloning and stuff
 echo " "
 
 read -p 'install all vundle plugins? (Y/n) ' -n 1 confirmation                                                                                     
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-vim +PluginInstall +qall
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  vim +PluginInstall +qall
 fi
 

@@ -1,6 +1,7 @@
 [user]
 	name = Feroze Naina
 	email = ferozenaina@gmail.com
+
 [credential]
 	helper = cache --timeout=3600
 
@@ -12,5 +13,27 @@
   hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
   type = cat-file -t
   dump = cat-file -p
+
+	myclone = "!f() { addr=$(echo $1 | cut -d : -f1); path=$(echo $1 | cut -d : -f2); git clone $addr:$path ./$path; }; f"
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+	lls = "!echo 'SUMMARY:'; echo; git log --format=' * %s '"
+	lld = "!echo 'DETAILS:'; echo; git log --format=' ** %B '"
+	lsd = "!f() { git lls $@; echo; git lld $@; }; f"
+	st = status
+	br = branch
+
 [push]
-	default = matching
+	default = simple
+
+[core]
+	editor = nvim
+
+# Use meld for stuff
+[diff]
+    tool = meld
+[difftool]
+    prompt = false
+
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE" 
+
