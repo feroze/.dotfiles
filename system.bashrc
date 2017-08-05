@@ -77,4 +77,4 @@ shopt -s histappend
 shopt -s cmdhist
 # Ignore duplicates, ls without options and builtin commands
 #HISTCONTROL=ignoredups
-export HISTIGNORE="&:ls:[bf]g:exit" " Ignore ls and exit
+export HISTIGNORE="&:ls:[bf]g:exit" # Ignore ls and exit
