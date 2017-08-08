@@ -34,7 +34,7 @@ echo " "
 
 read -p 'Install dev softwares? (Y/n) ' -n 1 confirmation                                                                                     
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-	sudo apt-get install -y git tmux ipython python-pip curl vim-gnome gdb colormake build-essential cmake python-dev exuberant-ctags
+	sudo apt-get install -y git tmux ipython python-pip curl vim-gnome gdb colormake build-essential cmake python-dev exuberant-ctags xsel
 fi
 
 ###
