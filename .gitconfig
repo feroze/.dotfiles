@@ -1,57 +1,102 @@
 [user]
-	name = Feroze Naina
-	email = ferozenaina@gmail.com
+  name = Feroze Naina
+  email = ferozenaina@gmail.com
 
 [credential]
-	helper = cache --timeout=3600
+  helper = cache --timeout=3600
 
 [alias]
   co = checkout
   ci = commit
+  di = diff
   st = status
+
   br = branch
+  bra = branch -a
+
+  diff = diff --word-diff
+
   hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
   type = cat-file -t
   dump = cat-file -p
 
-	myclone = "!f() { addr=$(echo $1 | cut -d : -f1); path=$(echo $1 | cut -d : -f2); git clone $addr:$path ./$path; }; f"
-	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
-	lls = "!echo 'SUMMARY:'; echo; git log --format=' * %s '"
-	lld = "!echo 'DETAILS:'; echo; git log --format=' ** %B '"
-	lsd = "!f() { git lls $@; echo; git lld $@; }; f"
-	st = status
-	br = branch
+  myclone = "!f() { addr=$(echo $1 | cut -d : -f1); path=$(echo $1 | cut -d : -f2); git clone $addr:$path ./$path; }; f"
+  alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+  lls = "!echo 'SUMMARY:'; echo; git log --format=' * %s '"
+  lld = "!echo 'DETAILS:'; echo; git log --format=' ** %B '"
+  lsd = "!f() { git lls $@; echo; git lld $@; }; f"
+
+  ### log listing
+  l = log --graph --pretty=format:'%C(yellow)%h%Creset%C(blue)%d%Creset %C(white bold)%s%Creset %C(white dim)(by %an %ar)%Creset'
+  la = ! git l --all
+  lo = log --graph --simplify-by-decoration --pretty=format:'%d'
+  loa = ! git lo --all
+  lol = log --graph --decorate --abbrev-commit --oneline
+  lola = ! git lol --all
+
+  ### log summary/details
+  lls = "echo 'SUMMARY:'; echo; git log --format=' * %s '"
+  lld = "echo 'DETAILS:'; echo; git log --format=' ** %B '"
+  lsd = "! f() { git lls $@ ; echo; git lld $@; }; f"
+
+  ### relative path cloning
+  myclone = "! f() { addr=$(echo $1 | cut -d : -f1); path=$(echo $1 | cut -d : -f2); git clone $addr:$path ./$path; }; f"
+
+  ### alias listing
+  alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+
+  ### branch related
+  cb = ! git rev-parse --abbrev-ref HEAD
+  bs = ! git for-each-ref --format='%(color:blue bold) %(refname:lstrip=2)%(color:white) %(push:track) %(color:cyan)%(upstream:lstrip=2)' refs/heads/$1
+  cbs = ! git for-each-ref --format='%(color:blue bold) %(refname:lstrip=2)%(color:white) %(push:track) %(color:cyan)%(upstream:lstrip=2)' refs/heads/$(git cb)
+  bss = "! f() { git bs | grep '.*\\[.*\\].*'; }; f"
+
+  ###
+  is-ancestor = ! ${GIT_SCRIPTS}/git-is-ancestor
+  is-same = ! ${GIT_SCRIPTS}/git-is-same
+  has-feature = ! ~/.dotfiles/git_scripts/git-has-feature
+
+  ###
+  whatadded = ! git log --pretty=format:\"%h%x09%an%x09%ad%x09%s\" --diff-filter=A
 
 [push]
-	default = simple
+  default = simple
 
 [core]
-	editor = nvim
+  editor = vim
 
 # Use meld for stuff
 [diff]
-    tool = meld
+  tool = meld
+  submodule = log
+
 [difftool]
-    prompt = false
+  prompt = false
 
 [difftool "meld"]
-    cmd = meld "$LOCAL" "$REMOTE" 
+  cmd = meld "$LOCAL" "$REMOTE" 
 
 [color]
-    ui = true
+  ui = true
 
 [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 
 [color "status"]
-    added = green
-    changed = yellow
-    untracked = red
+  added = green
+  changed = yellow
+  untracked = red
+
+[pull]
+  rebase = true
+
+[rerere]
+  enabled = true

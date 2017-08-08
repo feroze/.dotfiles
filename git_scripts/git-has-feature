@@ -1,0 +1,61 @@
+#!/bin/bash
+#
+# git-has-feature, by Marius Giurgi
+#
+# Suggested usage
+#
+# Store this file somewhere, make it executable, then alias
+# it to git has-feature by putting this in your $HOME/.gitconfig:
+#
+# [alias]
+#   has-feature = !/path/to/git-has-feature
+#
+# Then use thus:
+#
+# $ git has-feature branch
+
+. terminalColors.sh
+
+script_name=$(basename $0)
+
+usage()
+{
+  cat << EOF >&2
+usage: ${script_name} <branch>
+EOF
+}
+
+if [ $# -ne 1 ]; then
+  usage
+  exit 2
+fi
+
+branch=$1
+branchLabel="$BOLD$BLUE$branch$RESET"
+
+currentBranch=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
+currentBranchLabel="$BOLD$CYAN$currentBranch$RESET"
+
+# is there a merge commit integrating this branch ?
+if git log --oneline | grep "Merge branch '$branch'" &>/dev/null; then
+  echo "$YEP : feature branch = '$branchLabel' is integrated in '$currentBranchLabel' $CHECKMARK"
+  exit 0
+else # no branch commit integrating this branch => does the branch exist, is ancestor or is same as current branch ?
+  # check if the given branch exists
+  if ! git rev-parse -q --verify "$branch" &>/dev/null; then
+    echo "$ERR : feature branch = '$branchLabel' does NOT exist $ALERTMARK"
+    exit 1
+  else # branch exists => check if is same or ancestor
+    if [ $(git rev-parse -q $branch) ==  $(git rev-parse -q $currentBranch) ]; then
+      echo "$EHH : feature branch = '$branchLabel' is same as current branch '$currentBranchLabel' $ALERTMARK"
+      exit 0
+    elif git merge-base --is-ancestor $branch $currentBranch &>/dev/null; then
+      echo "$EHH : feature branch = '$branchLabel' is ancestor of current branch '$currentBranchLabel' $ALERTMARK"
+      exit 0
+    else
+      echo "$NOPE : feature branch = '$branchLabel' is NOT integrated in '$currentBranchLabel' $CROSSMARK"
+      exit 1
+    fi
+  fi
+fi
+

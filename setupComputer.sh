@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This was written for ubuntu 14.04
+# This was written for ubuntu 16.04
 
 read -p 'update repo? (Y/n) ' -n 1 confirmation                                                                                     
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
@@ -34,7 +34,7 @@ echo " "
 
 read -p 'Install dev softwares? (Y/n) ' -n 1 confirmation                                                                                     
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-	sudo apt-get install -y git tmux ipython python-pip curl vim-gnome gdb colormake build-essential cmake python-dev
+	sudo apt-get install -y git tmux ipython python-pip curl vim-gnome gdb colormake build-essential cmake python-dev exuberant-ctags
 fi
 
 ###
@@ -57,30 +57,57 @@ sudo apt-get install oracle-java8-set-default
 fi
 
 ###
-echo " "
+#echo " "
 
-read -p 'Install ack and rename? (Y/n) ' -n 1 confirmation                                                                                     
-if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-	sudo apt-get install -y ack-grep
-	sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
-fi
+#read -p 'Install ack and rename? (Y/n) ' -n 1 confirmation                                                                                     
+#if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
+	#sudo apt-get install -y ack-grep
+	#sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
+#fi
 
 ###
 echo " "
 
-read -p 'Install Ag Silversearcher and rename? (Y/n) ' -n 1 confirmation                                                                                     
+read -p 'Install Ag Silversearcher? (Y/n) ' -n 1 confirmation                                                                                     
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
 	sudo apt-get install -y silversearcher-ag
 fi
 
+
 ###
-# add another for shortcuts and vim and git cloning and stuff
+echo " "
+
+read -p 'Create soft-links for .vim, .vimrc? (Y/n) ' -n 1 confirmation                                                                                     
+if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
+  ln -s ~/.dotfiles/.vim ~/.vim
+  ln -s ~/.dotfiles/.vimrc ~/.vimrc
+fi
+
+###
+echo " "
+
+read -p 'Link system.bashrc and git.bashrc to ~/.bashrc? (Y/n) ' -n 1 confirmation                                                                                     
+if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
+  echo "source ~/.dotfiles/system.bashrc" >> ~/.bashrc
+  echo "source ~/.dotfiles/git.bashrc" >> ~/.bashrc
+fi
+
+###
 echo " "
 
 read -p 'install all vundle plugins? (Y/n) ' -n 1 confirmation                                                                                     
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   vim +PluginInstall +qall
+fi
+
+###
+echo " "
+
+read -p 'setup git scripts ' -n 1 confirmation                                                                                     
+if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
+  echo "GIT_SCRIPTS="$HOME/.dotfiles/git_scripts"" >> ~/.bashrc
+  #echo "PATH="$PATH:$GIT_SCRIPTS"" >> ~/.bashrc
 fi
 
 

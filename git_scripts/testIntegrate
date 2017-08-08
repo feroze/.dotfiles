@@ -1,0 +1,12 @@
+#!/bin/bash
+# This script tests if a branch can be merged with a fast forward to the current branch
+# Usage: ./testIntegrate targetBranch
+
+if 
+  git merge-base --is-ancestor HEAD $1; 
+then 
+  CUR_BRANCH=`git rev-parse --abbrev-ref HEAD`;
+  echo -e "\e[0;32m  ===================Merging $1  to $CUR_BRANCH ======================== \e[m; "
+else 
+  echo -e "\e[0;32m \033[0;91m ===================NO FAST FORWARD from $1  to $CUR_BRANCH ======================== \e[m; "
+fi

@@ -1,0 +1,68 @@
+#!/bin/bash
+#
+# git-is-ancestor, by Marius Giurgi
+#
+# Suggested usage
+#
+# Store this file somewhere, make it executable, then alias
+# it to git is-ancestor by putting this in your $HOME/.gitconfig:
+#
+# [alias]
+#   is-ancestor = !/path/to/git-is-ancestor
+#
+# Then use thus:
+#
+# $ git is-ancestor rev1 rev2
+
+. terminalColors.sh
+
+script_name=$(basename $0)
+
+usage()
+{
+  cat << EOF >&2
+usage: ${script_name} <REV1> <REV2>
+EOF
+}
+
+if [ $# -ne 2 ]; then
+    usage
+    exit 2
+fi
+
+rev1=$1
+rev2=$2
+rev1Label="$BOLD$BLUE$rev1$RESET"
+rev2Label="$BOLD$CYAN$rev2$RESET"
+
+# check if the given revs exist
+if ! git rev-parse -q --verify $rev1 &>/dev/null; then
+  if ! git rev-parse -q --verify $rev2 &>/dev/null; then
+    echo "$ERR : '$rev1Label' and '$rev2Label' do not exist"
+  else # ref2 exists => only ref1 does not exist
+    echo "$ERR : '$rev1Label' does not exist"
+  fi
+  exit 1
+else # ref1 exists => does ref2 exist ?
+  if ! git rev-parse -q --verify $rev2 &>/dev/null; then
+    echo "$ERR : '$rev2Label' does not exist"
+    exit 1
+  fi
+fi
+
+if [ $(git rev-parse -q $rev1) ==  $(git rev-parse -q $rev2) ]; then
+  echo "$MEH : rev1 = '$rev1Label' is same as rev2 = '$rev2Label' $ALERTMARK"
+  exit 0
+elif $( git merge-base --is-ancestor $rev1 $rev2 &>/dev/null); then
+  # echo "$BOLD$GREEN$1 is an ancestor of $2$RESET"
+  echo "$YEP : rev1='$rev1Label' is an ancestor of rev2='$rev2Label' $CHECKMARK"
+  exit 0
+elif $( git merge-base --is-ancestor $rev2 $rev1 &>/dev/null); then
+  # echo "$BOLD$YELLOW$2 is an ancestor of $1$RESET"
+  echo "$EHH : rev2='$rev2Label' is actually an ancestor of rev1='$rev1Label' $ALERTMARK"
+  exit 0
+else
+  # echo "$BOLD$RED$1 and $2 are not related$RESET"
+  echo "$NOPE : rev1='$rev1Label' and rev2='$rev2Label' are not related $CROSSMARK"
+  exit 1
+fi

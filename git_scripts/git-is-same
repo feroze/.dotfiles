@@ -1,0 +1,60 @@
+#!/bin/bash
+#
+# git-is-same, by Marius Giurgi
+#
+# Suggested usage
+#
+# Store this file somewhere, make it executable, then alias
+# it to git is-same by putting this in your $HOME/.gitconfig:
+#
+# [alias]
+#   is-same = !/path/to/git-is-same
+#
+# Then use thus:
+#
+# $ git is-same rev1 rev2
+
+. terminalColors.sh
+
+script_name=$(basename $0)
+
+usage()
+{
+    cat << EOF >&2
+usage: ${script_name} <REV1> <REV2>
+EOF
+}
+
+if [ $# -ne 2 ]; then
+    usage
+    exit 2
+fi
+
+rev1=$1
+rev2=$2
+rev1Label="$BOLD$BLUE$rev1$RESET"
+rev2Label="$BOLD$CYAN$rev2$RESET"
+
+# any of the revs does not exist ? => report and exit
+if ! git rev-parse -q --verify $rev1 &>/dev/null; then
+  if ! git rev-parse -q --verify $rev2 &>/dev/null; then
+    echo "$ERR : '$rev1Label' and '$rev2Label' do not exist"
+  else # ref2 exists => only ref1 does not exist
+    echo "$ERR : '$rev1Label' does not exist"
+  fi
+  exit 1
+else # rev1 exists => does rev2 exist ?
+  if ! git rev-parse -q --verify $rev2 &>/dev/null; then
+    echo "$ERR : '$rev2Label' does not exist"
+    exit 1
+  fi
+fi
+
+# are the revs the same ?
+if [ $(git rev-parse -q $rev1) ==  $(git rev-parse -q $rev2) ]; then
+    echo "$YEP : rev1='$rev1Label' and rev2='$rev2Label' are the same $CHECKMARK"
+    exit 0
+else
+    echo "$NOPE : rev1='$rev1Label' and rev2='$rev2Label' are NOT the same $CROSSMARK"
+    exit 1
+fi

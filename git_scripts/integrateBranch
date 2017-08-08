@@ -1,0 +1,13 @@
+#!/bin/bash
+# This script merges with a fast forward to the current branch, if its not a fastforward, it notifies the user
+# Usage: ./integrateBranch targetBranch
+
+if 
+  git merge-base --is-ancestor HEAD $1; 
+then 
+  CUR_BRANCH=`git rev-parse --abbrev-ref HEAD`;
+  echo -e "\e[0;32m  ===================Merging $1  to $CUR_BRANCH ======================== \e[m; "
+  git merge --no-ff $1
+else 
+  echo -e "\e[0;32m \033[0;91m ===================NO FAST FORWARD from $1  to $CUR_BRANCH ======================== \e[m; "
+fi
