@@ -18,3 +18,8 @@ read book - servers for hackers
 
 
 Ubuntu dfeault is ubuntu mono regular
+
+Improve bashrc
+
+Learn to use ctags with goto definitions & 
+add a way of referencing cpp methods inside vim
