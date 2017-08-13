@@ -7,7 +7,7 @@ WEEKNUM="$(date +%W)"
 FILENAME="week-$WEEKNUM.md"
 #echo "${FILENAME}"
 
-HEADER="$(date +%d-%b)"
+HEADER="$(date +%d-%b-%y)"
 
 if [ ! -f $FILENAME ]; then
   echo "File not found!"
@@ -41,4 +41,4 @@ else
 fi
 
 
-cd -
+cd - > /dev/null
