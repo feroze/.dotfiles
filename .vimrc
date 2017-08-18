@@ -44,7 +44,10 @@ Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/syntastic'
 
 " Sleuth to heuristically set file indendation options
-Plugin 'tpop/vim-sleuth'
+"Plugin 'tpop/vim-sleuth'
+
+" Makes latex editing much faster
+Plugin 'lervag/vimtex'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -104,6 +107,9 @@ nnoremap <C-H> <C-W><C-H>
 " Recognize .md files as markdown
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
+" Recognize .xtx files as latex
+au BufNewFile,BufFilePre,BufRead *.xtx set filetype=tex
+
 " Recognize .bashrc files as sh
 au BufNewFile,BufFilePre,BufRead *.bashrc set filetype=sh
 
@@ -139,3 +145,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " show cpp documentation using cppman by pressing Shift + K
 autocmd FileType cpp set keywordprg=cppman
+
+" This is for vimtex to work nicely with latexmk
+let g:latex_view_general_viewer = 'zathura'
+let g:vimtex_view_method = "zathura"
