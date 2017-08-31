@@ -77,3 +77,7 @@ shopt -s cmdhist
 # Ignore duplicates, ls without options and builtin commands
 #HISTCONTROL=ignoredups
 export HISTIGNORE="&:ls:[bf]g:exit" # Ignore ls and exit
+
+eval $(thefuck --alias)
+# You can use whatever you want as an alias, like for Mondays:
+eval $(thefuck --alias FUCK)

@@ -110,5 +110,16 @@ if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
   #echo "PATH="$PATH:$GIT_SCRIPTS"" >> ~/.bashrc
 fi
 
+###
+echo " "
+
+read -p 'Install thefuck for auto fixing errors' -n 1 confirmation                                                                                     
+if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
+  sudo apt update
+  sudo apt install python3-dev python3-pip
+  sudo pip3 install thefuck
+fi
+
 
 #TODO install autolock
+
