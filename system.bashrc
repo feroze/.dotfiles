@@ -81,3 +81,14 @@ export HISTIGNORE="&:ls:[bf]g:exit" # Ignore ls and exit
 eval $(thefuck --alias)
 # You can use whatever you want as an alias, like for Mondays:
 eval $(thefuck --alias FUCK)
+
+# customized prompter (add these to your ~/.bash_profile or ~/.bashrc)
+GRAY='\[\033[1;30m\]'    # gray color
+RESET='\[\033[0m\]'      # reset color
+COLOR_U='\[\033[1;34m\]' # username color
+COLOR_H='\[\033[0;35m\]' # hostname color
+COLOR_G='\[\033[0;32m\]' # git status color
+COLOR_W='\[\033[1;37m\]' # path color
+GIT_STATUS='$(__git_ps1 "(%s)")' # this gets the status of the current repo
+PROMPT_CHAR='\$' # your desired prompt character
+PS1="${GRAY}[ ${COLOR_U}\u ${GRAY}@ ${COLOR_H}\h ${GRAY}] ${COLOR_G}${GIT_STATUS} ${COLOR_W}\W ${GRAY}${PROMPT_CHAR} ${RESET}"
