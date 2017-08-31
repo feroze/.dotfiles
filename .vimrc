@@ -47,6 +47,7 @@ Plugin 'scrooloose/syntastic'
 "Plugin 'tpop/vim-sleuth'
 
 " Makes latex editing much faster
+" Vimtex
 Plugin 'lervag/vimtex'
 
 " All of your Plugins must be added before the following line
@@ -112,6 +113,10 @@ au BufNewFile,BufFilePre,BufRead *.xtx set filetype=tex
 
 " Recognize .bashrc files as sh
 au BufNewFile,BufFilePre,BufRead *.bashrc set filetype=sh
+
+
+" Recognize .bashrc files as sh
+au BufNewFile,BufFilePre,BufRead *.xtx set filetype=tex
 
 " Recognize arduino and .tpp files as cpp
 autocmd BufNewFile,BufReadPost *.ino,*.pde,*.tpp set filetype=cpp
