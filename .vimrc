@@ -154,3 +154,6 @@ autocmd FileType cpp set keywordprg=cppman
 " This is for vimtex to work nicely with latexmk
 let g:latex_view_general_viewer = 'zathura'
 let g:vimtex_view_method = "zathura"
+
+" Use ctags with CtrlP to jump fast
+nnoremap <leader>. :CtrlPTag<cr>
