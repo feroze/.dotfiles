@@ -123,3 +123,5 @@ fi
 
 #TODO install autolock
 
+gsettings set org.gnome.desktop.background show-desktop-icons false
+

@@ -1,15 +1,6 @@
 Note: Repo used to setup machines, track dotfiles, and stay on top my shortcuts
 tools - tmix, cpp, git, py, ROS
 
-TODO:
-Setup shell script to auto copy links and backup old ones
-fix stupid colors
-swap fn and ctrl in t420
-write script to link .bashrc stuff from home to .dotfiles directory
-also write a script to swap profiles easily
-Add preview tools to ranger and nautilus to view files directly without clicking
-
---
 New computer:
 
 run setup script
@@ -66,7 +57,6 @@ cd $(fn *str*) will go to first occurence
 
 ## other new computer stuff ##
 
-install tmux. start it at every bash start
 install ros
 install git. change gitconfig.
 make install script for ROS
@@ -80,16 +70,37 @@ vim-gtk
 network – Don’t press available to all users
 enable middle click
 
-# TODO #
+## TODO ##
 Add commands to close vim buffer without closing split
 
 Add vim shortcut/plugin for jump to definition in source
 
 Add meld as default git diff tool
+try out keynav
 
-# repos
+Add YCM binding for witching to Header files GoTo
 
-add i3 ubuntu repo for latest version
+use gr for managing multiple repos
 
+learn to use bash vim mode. will come in very handy
 
-# swap caps
+zathura is a nice vim -based pdf viewer
+
+map ctrl + " + y to y in vim
+
+Ubuntu dfeault is ubuntu mono regular
+
+Learn to use ctags with goto definitions & 
+add a way of referencing cpp methods inside vim
+
+add fonts
+
+Store .config also as it's becoming more widely used by you
+
+add i3-gaps ubuntu repo for latest version
+Setup shell script to auto copy links and backup old ones
+fix stupid colors
+swap fn and ctrl in t420
+write script to link .bashrc stuff from home to .dotfiles directory
+also write a script to swap profiles easily
+Add preview tools to ranger and nautilus to view files directly without clicking
