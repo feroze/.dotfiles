@@ -169,6 +169,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 #exec --no-startup-id fluxgui // Doesn't work on drivers
 exec --no-startup-id redshift
+exec --no-startup-id megasync
 
 
 # lock on alt+ctrl+l
