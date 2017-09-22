@@ -104,7 +104,7 @@ fi
 ###
 echo " "
 
-read -p 'setup git scripts ' -n 1 confirmation                                                                                     
+read -p 'setup git scripts? (Y/n)' -n 1 confirmation                                                                                     
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
   echo "GIT_SCRIPTS="$HOME/.dotfiles/git_scripts"" >> ~/.bashrc
   #echo "PATH="$PATH:$GIT_SCRIPTS"" >> ~/.bashrc
@@ -113,15 +113,37 @@ fi
 ###
 echo " "
 
-read -p 'Install thefuck for auto fixing errors' -n 1 confirmation                                                                                     
+read -p 'Install thefuck for auto fixing errors? (Y/n)' -n 1 confirmation                                                                                     
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
   sudo apt update
   sudo apt install python3-dev python3-pip
   sudo pip3 install thefuck
 fi
 
+###
+echo " "
+
+read -p 'Install i3-gaps dependencies and rofi? (Y/n)' -n 1 confirmation                                                                                     
+if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
+  sudo apt-get install i3
+  sudo add-apt-repository ppa:aguignard/ppa
+  sudo apt-get update
+  sudo apt-get install libxcb-xrm-dev
+  sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm-dev
+fi
+
 
 #TODO install autolock
+ 
+###
+echo " "
+
+read -p 'Install dupeGuru? (Y/n)' -n 1 confirmation                                                                                     
+if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
+  sudo apt-add-repository ppa:hsoft/ppa
+  sudo apt-get update
+  sudo apt-get install dupeguru
+fi
+
 
 gsettings set org.gnome.desktop.background show-desktop-icons false
-
