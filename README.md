@@ -104,3 +104,10 @@ swap fn and ctrl in t420
 write script to link .bashrc stuff from home to .dotfiles directory
 also write a script to swap profiles easily
 Add preview tools to ranger and nautilus to view files directly without clicking
+
+for polybar to work, install fonts and enable bitmap
+
+# "Un-disable" bitmap fonts
+sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
+# Clear the font cache
+sudo fc-cache -f -v
