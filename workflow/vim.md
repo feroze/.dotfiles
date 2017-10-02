@@ -6,3 +6,18 @@ Launch gvim/vim
 Use ctrlP
 
 TODO: Add YoucompleteMe + ctags
+
+Use ctags for jumping
+
+generate ctags. have a script to do it?
+bashrc?
+
+then, press ctrl-]. This has been remapped to open a list if multiple are found
+
+use Ctrl-t to come back to original.
+Ctrl-O
+CTRL-T is working with tags stack
+
+CTRL-O is working with jumplist
+
+Press F8 to see all the functions and browse them using tagbar

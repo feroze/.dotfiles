@@ -38,6 +38,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " tagbar - displays all the class names in rhs. Press F8 to display
+" tagbar to make it look like Sublime
 Plugin 'majutsushi/tagbar'
 
 " Syntastic - syntax Cpp validator
@@ -156,4 +157,17 @@ let g:latex_view_general_viewer = 'zathura'
 let g:vimtex_view_method = "zathura"
 
 " Use ctags with CtrlP to jump fast
+nnoremap <leader>. :CtrlPTag<cr>
+
+
+let g:ycm_global_ycm_extra_conf = '~/.dotfiles/.ycm_extra_conf.py'
+let g:ycm_collect_identifiers_from_tags_files = 1
+
+set tags=tags;/
+
+" Provide list of definitions to jump to if multiple. Else, jump to one
+nnoremap <C-]> g<C-]>
+
+
+" use ctrlP to jump to defintinions
 nnoremap <leader>. :CtrlPTag<cr>
