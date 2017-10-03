@@ -176,10 +176,10 @@ exec --no-startup-id megasync
 
 
 # lock on alt+ctrl+l
-bindsym $mod+Control+l exec ~/.dotfiles/fuzzy_lock.sh
+bindsym $mod+Control+l exec ~/.config/i3/fuzzy_lock.sh
 
 # lock on computer inactivity
-exec xautolock -time 10 -locker '~/.dotfiles/fuzzy_lock.sh' & # If computer idle for 10 minutes, lock it
+exec xautolock -time 10 -locker '~/.config/i3/fuzzy_lock.sh' & # If computer idle for 10 minutes, lock it
 
 # disable monitor. use only external
 #bindsym $mod+Shift+s exec --no-startup-id /home/feroze/.dotfiles/i3monitor
