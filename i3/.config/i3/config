@@ -198,4 +198,4 @@ gaps inner 10
 gaps outer 0
 smart_gaps on
 
-exec --no-startup-id i3-msg 'workspace 1; exec google-chrome https://calendar.google.com/calendar/render#g --new-window;'
+exec --no-startup-id /home/feroze/.dotfiles/startup_applications.sh
