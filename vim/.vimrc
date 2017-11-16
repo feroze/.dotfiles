@@ -27,8 +27,8 @@ Plugin 'tpope/vim-fugitive.git'
 Plugin 'tpope/vim-surround.git'
 
 " Autocomplete
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 Plugin 'Valloric/YouCompleteMe'
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 
 " a.vim for fast file switching
 Plugin 'a.vim'
