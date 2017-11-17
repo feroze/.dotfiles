@@ -26,6 +26,7 @@ alias .5='cd ../../../../..'
 alias tmux='tmux -2'
 
 alias quit='exit'
+alias q='exit'
 
 # useful shortcuts
 alias r='ranger'
