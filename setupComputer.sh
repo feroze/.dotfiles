@@ -57,30 +57,11 @@ sudo apt-get install oracle-java8-set-default
 fi
 
 ###
-#echo " "
-
-#read -p 'Install ack and rename? (Y/n) ' -n 1 confirmation                                                                                     
-#if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-	#sudo apt-get install -y ack-grep
-	#sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
-#fi
-
-###
 echo " "
 
 read -p 'Install Ag Silversearcher? (Y/n) ' -n 1 confirmation                                                                                     
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
 	sudo apt-get install -y silversearcher-ag
-fi
-
-
-###
-echo " "
-
-read -p 'Create soft-links for .vim, .vimrc? (Y/n) ' -n 1 confirmation                                                                                     
-if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-  ln -s ~/.dotfiles/.vim ~/.vim
-  ln -s ~/.dotfiles/.vimrc ~/.vimrc
 fi
 
 ###
@@ -90,15 +71,6 @@ read -p 'Link system.bashrc and git.bashrc to ~/.bashrc? (Y/n) ' -n 1 confirmati
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
   echo "source ~/.dotfiles/system.bashrc" >> ~/.bashrc
   echo "source ~/.dotfiles/git.bashrc" >> ~/.bashrc
-fi
-
-###
-echo " "
-
-read -p 'install all vundle plugins? (Y/n) ' -n 1 confirmation                                                                                     
-if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-  vim +PluginInstall +qall
 fi
 
 ###

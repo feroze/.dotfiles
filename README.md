@@ -1,3 +1,8 @@
+# Install using git clone --recursive https://github.com/feroze/.dotfiles ~/
+
+
+
+
 Note: Repo used to setup machines, track dotfiles, and stay on top my shortcuts
 tools - tmix, cpp, git, py, ROS
 
