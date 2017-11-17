@@ -1,8 +1,8 @@
-alias mi="colormake install"
-alias mi4="colormake install -j4"
-alias m="colormake"
-alias m4="colormake -j4"
-alias m13="colormake -j13"
+alias mi="colormake install; notify-send 'Make finished!'"
+alias mi4="colormake install -j4; notify-send 'Make finished!'"
+alias m="colormake; notify-send 'Make finished!'"
+alias m4="colormake -j4; notify-send 'Make finished!'"
+alias m13="colormake -j13; notify-send 'Make finished!'"
 alias mc="make clean"
 
 alias cm="cd ~/catkin_ws/; catkin_make; cd -"
@@ -93,7 +93,9 @@ RESET='\[\033[0m\]'      # reset color
 COLOR_U='\[\033[1;31m\]' # username color
 COLOR_H='\[\033[0;35m\]' # hostname color
 COLOR_G='\[\033[0;32m\]' # git status color
-COLOR_W='\[\033[1;37m\]' # path color
+COLOR_W='\[\033[1;30m\]' # path color
 GIT_STATUS='$(__git_ps1 "(%s)")' # this gets the status of the current repo
+#PROMPT_CHAR='\$' # your desired prompt character
 PROMPT_CHAR='\$' # your desired prompt character
+PROMPT_CHAR='λ' # your desired prompt character
 PS1="${GRAY}┌[${COLOR_U}\u ${GRAY}@ ${COLOR_H}\h${GRAY}] ${COLOR_W}\w ${COLOR_G}${GIT_STATUS} ${GRAY} \n└> ${PROMPT_CHAR} ${RESET} "
