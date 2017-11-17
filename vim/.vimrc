@@ -54,6 +54,9 @@ Plugin 'lervag/vimtex'
 " Install clang formatter
 Plugin 'rhysd/vim-clang-format'
 
+" Overkilling like a bau5 - plugin to highlight i3 config correctly
+Plugin 'PotatoesMaster/i3-vim-syntax'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

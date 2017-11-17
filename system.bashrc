@@ -11,10 +11,10 @@ alias cc="cd ~/catkin_ws/; catkin clean -y; cd -"
 
 alias fn="find -name"
 
-## get rid of command not found ##
+# get rid of command not found
 alias cd..='cd ..'
  
-## a quick way to get out of current directory ##
+# a quick way to get out of current directory
 alias ..='cd ..'
 alias ...='cd ../../../'
 alias ....='cd ../../../../'
@@ -27,9 +27,14 @@ alias tmux='tmux -2'
 
 alias quit='exit'
 
+# useful shortcuts
+alias r='ranger'
+alias p='ps ax | grep -v grep | grep -i'
+
 # Manage source files
-alias bashrc='vim ~/.bashrc'
-alias sourcebashrc='source ~/.bashrc'
+alias b='vim ~/.bashrc'
+alias sb='source ~/.bashrc'
+
 
 alias vimrc='vim ~/.vimrc'
 
@@ -85,10 +90,10 @@ eval $(thefuck --alias FUCK)
 # customized prompter (add these to your ~/.bash_profile or ~/.bashrc)
 GRAY='\[\033[1;30m\]'    # gray color
 RESET='\[\033[0m\]'      # reset color
-COLOR_U='\[\033[1;34m\]' # username color
+COLOR_U='\[\033[1;31m\]' # username color
 COLOR_H='\[\033[0;35m\]' # hostname color
 COLOR_G='\[\033[0;32m\]' # git status color
 COLOR_W='\[\033[1;37m\]' # path color
 GIT_STATUS='$(__git_ps1 "(%s)")' # this gets the status of the current repo
 PROMPT_CHAR='\$' # your desired prompt character
-PS1="${GRAY}[ ${COLOR_U}\u ${GRAY}@ ${COLOR_H}\h ${GRAY}] ${COLOR_G}${GIT_STATUS} ${COLOR_W}\W ${GRAY}${PROMPT_CHAR} ${RESET}"
+PS1="${GRAY}┌[${COLOR_U}\u ${GRAY}@ ${COLOR_H}\h${GRAY}] ${COLOR_W}\w ${COLOR_G}${GIT_STATUS} ${GRAY} \n└> ${PROMPT_CHAR} ${RESET} "

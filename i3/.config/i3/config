@@ -200,3 +200,6 @@ gaps outer 0
 smart_gaps on
 
 exec --no-startup-id /home/feroze/.dotfiles/startup_applications.sh
+
+# Line below is used by vim to detect ft
+# vim:filetype=i3
