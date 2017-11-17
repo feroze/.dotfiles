@@ -1,3 +1,5 @@
+Install vim8 from PPA
+
 After cloning the dotfiles repo recursively to install submodules, launch vim and type
 :PluginInstall
 
