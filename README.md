@@ -33,8 +33,6 @@ install git, add following to ~/.gitconfig:
 
 
 ## TODO ##
-Create a .vim/tmp file to store annoying swaps
-
 Add vim shortcut/plugin for jump to definition in source
 
 try out keynav
