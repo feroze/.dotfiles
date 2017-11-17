@@ -191,3 +191,6 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
+
+" Store all swap files in this directory. ^= checks first
+set directory^=$HOME/.vim/swapfiles//
