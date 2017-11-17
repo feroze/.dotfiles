@@ -177,3 +177,14 @@ nnoremap <leader>. :CtrlPTag<cr>
 
 " set relative number - for current line show absolute
 set number relativenumber
+
+" Although relative line numbers are helpful when moving around in normal mode,
+" absolute line numbers are more suited for insert mode. When the buffer doesn’t
+" have focus, it’d also be more useful to show absolute line numbers.
+" For example, when running tests from a seperate terminal split, it’d make more
+" sense to be able to see which test is on which absolute line number.
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
