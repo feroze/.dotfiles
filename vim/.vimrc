@@ -174,3 +174,6 @@ nnoremap <C-]> g<C-]>
 
 " use ctrlP to jump to defintinions
 nnoremap <leader>. :CtrlPTag<cr>
+
+" set relative number - for current line show absolute
+set number relativenumber
