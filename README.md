@@ -1,6 +1,8 @@
-# Install using git clone --recursive https://github.com/feroze/.dotfiles ~/
+# Feroze's dotfiles
 
+## Install
 
+using git clone --recursive https://github.com/feroze/.dotfiles ~/.dotfiles
 
 
 Note: Repo used to setup machines, track dotfiles, and stay on top my shortcuts
