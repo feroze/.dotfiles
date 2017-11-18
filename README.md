@@ -35,7 +35,7 @@ install git, add following to ~/.gitconfig:
 ## TODO ##
 Add vim shortcut/plugin for jump to definition in source
 
-try out keynav
+try out keynav - navigate window gui using just keyboard
 
 Add YCM binding for witching to Header files GoTo
 

@@ -99,4 +99,4 @@ GIT_STATUS='$(__git_ps1 "(%s)")' # this gets the status of the current repo
 #PROMPT_CHAR='\$' # your desired prompt character
 PROMPT_CHAR='\$' # your desired prompt character
 PROMPT_CHAR='λ' # your desired prompt character
-PS1="${GRAY}┌ ${COLOR_W}\w ${COLOR_G}${GIT_STATUS} ${GRAY} \n└> ${PROMPT_CHAR} ${RESET} "
+PS1="${GRAY}┌ ${COLOR_W}\w ${COLOR_G}${GIT_STATUS} ${GRAY} \n└> ${PROMPT_CHAR} ${RESET}"
