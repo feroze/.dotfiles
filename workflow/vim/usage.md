@@ -30,7 +30,7 @@ Press F8 to see all the functions and browse them using tagbar
 
 For latex, I have latexmk setup with vimtex
 
-just open file and type \tt to start automatic texing
+just open file and type \ll to start automatic texing
 
 use :A to switch to C/CPP header files
 
