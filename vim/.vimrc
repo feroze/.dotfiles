@@ -194,3 +194,6 @@ augroup END
 
 " Store all swap files in this directory. ^= checks first
 set directory^=$HOME/.vim/swapfiles//
+
+" Wrap text at 80 chars for tex files
+au BufRead,BufNewFile *.tex setlocal textwidth=80
