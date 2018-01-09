@@ -10,7 +10,7 @@ endif
 
 call plug#begin(expand('~/.vim/plugged')) " Put all plugin loads here
 
-" # Language 
+" # Language
 
 Plug 'scrooloose/nerdcommenter'
 " ,cc to comment and uncomment lines
@@ -18,7 +18,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'lervag/vimtex'
 " Use \ll to autorun latex commands using latexmk
 " You still need latexmkrc
-
 
 " # interface and IDE elements
 
@@ -34,7 +33,12 @@ let g:solarized_termcolors=256
 set background=light
 set t_Co=256
 
-" # Code navigation
+" # Code display and prettifying
+Plug 'bronson/vim-trailing-whitespace'
+" Automatically highlights trailing whitespace
+" Call :FixWhitespace to fix everything
+
+" # Source code navigation
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -46,23 +50,35 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'mileszs/ack.vim'
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+  let g:ackprg = 'ag'
 endif
 " Use :Ack [options] {pattern} [{directories}]
 
 
 " ---
 Plug 'vimwiki/vimwiki'
+" Add the list of wikis into ~/.vimrc_wikis using below syntax
+"let g:vimwiki_list = [
+"                        \{'path': '~/wiki1/', 'syntax': 'markdown'},
+"                        \{'path': '~/wiki2/', 'syntax': 'markdown'},
+"                \]
+
 " Use ,ww to open first wiki in list
+if !empty(glob("~/.vimrc_wikis"))
+  source ~/.vimrc_wikis
+endif
 
 " # Integrations for external apps
 
 Plug 'tpope/vim-fugitive'
 " Use :Gblame to see last change
 
-Plug 'jreybert/vimagit'
-" Use :Magit to open window and stage git hunks using S
-" Faster than using git -p <file>
+Plug 'airblade/vim-gitgutter'
+"jump to next hunk (change): ]c
+"jump to previous hunk (change): [c.
+"You can stage or undo an individual hunk when your cursor is in it:
+"stage the hunk with <Leader>hs or
+"undo it with <Leader>hu.
 
 
 call plug#end() " End of plugin loads
@@ -124,5 +140,5 @@ au BufNewFile,BufReadPost *.ino,*.pde,*.tpp set filetype=cpp
 " Wrap text for certain filetypes
 au BufRead,BufNewFile *.tex,*.wiki,*.md setlocal textwidth=80
 
-" different indent settings for python 
+" different indent settings for python
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
