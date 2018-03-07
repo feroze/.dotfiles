@@ -1,81 +1,90 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Automatically install vim-plug plugin-manager
+" NOTE: Does not work behind proxy
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs --insecure
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin(expand('~/.vim/plugged')) " Put all plugin loads here
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
+" # Language 
 
-" Comment plugin
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
+" ,cc to comment and uncomment lines
 
-" For solarized
-Plugin 'altercation/vim-colors-solarized.git'
+Plug 'lervag/vimtex'
+" Use \ll to autorun latex commands using latexmk
+" You still need latexmkrc
 
-" Ctrl P
-Plugin 'ctrlpvim/ctrlp.vim'
 
-" Fugitive
-Plugin 'tpope/vim-fugitive.git'
+" # interface and IDE elements
 
-" Surround
-Plugin 'tpope/vim-surround.git'
+Plug 'majutsushi/tagbar'
+" Press F8 to display method names and tags
 
-" Autocomplete
-Plugin 'Valloric/YouCompleteMe'
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" Automatic status line
 
-" a.vim for fast file switching
-Plugin 'a.vim'
-
-" airline
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-" tagbar - displays all the class names in rhs. Press F8 to display
-" tagbar to make it look like Sublime
-Plugin 'majutsushi/tagbar'
-
-" Syntastic - syntax Cpp validator
-Plugin 'scrooloose/syntastic'
-
-" Sleuth to heuristically set file indendation options
-"Plugin 'tpop/vim-sleuth'
-
-" Makes latex editing much faster
-" Vimtex
-Plugin 'lervag/vimtex'
-
-" Install clang formatter
-Plugin 'rhysd/vim-clang-format'
-
-" Overkilling like a bau5 - plugin to highlight i3 config correctly
-Plugin 'PotatoesMaster/i3-vim-syntax'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" Enable solarized scheme
-syntax enable
+Plug 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=256
-colorscheme solarized
 set background=light
 set t_Co=256
 
-syntax enable             " enable syntax highlighting (previously syntax on).
+" # Code navigation
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+" PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
+" Both options are optional. You don't have to install fzf in ~/.fzf
+" and you don't have to run install script if you use fzf only in Vim.
+" Use :Files to search for files
+" Use :Commits to search for commits using fugitive
+
+Plug 'mileszs/ack.vim'
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+" Use :Ack [options] {pattern} [{directories}]
+
+
+" ---
+Plug 'vimwiki/vimwiki'
+" Use ,ww to open first wiki in list
+
+" # Integrations for external apps
+
+Plug 'tpope/vim-fugitive'
+" Use :Gblame to see last change
+
+Plug 'jreybert/vimagit'
+" Use :Magit to open window and stage git hunks using S
+" Faster than using git -p <file>
+
+
+call plug#end() " End of plugin loads
+
+colorscheme solarized " Needs to be after plug loads everything
+
+" Display settings
+
 set number                " show line numbers
+set ruler                 " Always show info along bottom.
 set laststatus=2          " last window always has a statusline
+
+" Current buffer search settings
 
 set nohlsearch            " Don't continue to highlight searched phrases.
 set incsearch             " But do highlight as you type your search.
+set hlsearch " allows you to search for word under curso with*
 set ignorecase            " Make searches case-insensitive.
-set ruler                 " Always show info along bottom.
+nnoremap <F3> :set hlsearch!<CR> " <F3> redraws the screen and removes any search highlighting.
+
+" Code/text settings
+
 set autoindent            " auto-indent
 set tabstop=2             " tab spacing
 set softtabstop=2         " unify
@@ -85,26 +94,12 @@ set expandtab             " use spaces instead of tabs
 set smarttab              " use tabs at the start of a line, spaces elsewhere
 set nowrap                " don't wrap text
 
+" disable automatic comment insertion
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Vim navigation settings
+
 let mapleader=","         " set comma as leaderkey for nerdcommenter
-
-" different indent settings for python 
-autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
-
-" for YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-
-" execute cpp
-autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ -std=c++11 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-autocmd filetype python nnoremap <F4> :w <bar> exec '!python '.shellescape('%')<CR>
-
-" Create swap files in a different tmp directory
-set directory^=$HOME/.vim/tmp//
-
-" Ignore object files for ctrl-P
-set wildignore+=*.so,*.swp,*.zip,*.o     " MacOSX/Linux
-
-" To change directory to current file
-autocmd BufEnter * silent! lcd %:p:h
 
 " Navigate split windows with Ctrl + hjkl
 nnoremap <C-J> <C-W><C-J>
@@ -112,88 +107,22 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Recognize .md files as markdown
+" vim settings
+
+set directory^=$HOME/.vim/swapfiles// " Create swap files in a different tmp directory
+set clipboard=unnamedplus " Use X system clipboard directly for peace of mind
+
+" Filetype specific settings
+
+" Associate filetypes correctly
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
-
-" Recognize .xtx files as latex
 au BufNewFile,BufFilePre,BufRead *.xtx set filetype=tex
-
-" Recognize .bashrc files as sh
+au BufNewFile,BufFilePre,BufRead *.xtx set filetype=tex
 au BufNewFile,BufFilePre,BufRead *.bashrc set filetype=sh
+au BufNewFile,BufReadPost *.ino,*.pde,*.tpp set filetype=cpp
 
+" Wrap text for certain filetypes
+au BufRead,BufNewFile *.tex,*.wiki,*.md setlocal textwidth=80
 
-" Recognize .bashrc files as sh
-au BufNewFile,BufFilePre,BufRead *.xtx set filetype=tex
-
-" Recognize arduino and .tpp files as cpp
-autocmd BufNewFile,BufReadPost *.ino,*.pde,*.tpp set filetype=cpp
-
-" Enable code folding
-set foldmethod=syntax
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldlevel=1         "this is just what i use
-set mouse=a
-"let c_no_comment_fold=1 "dont fold comments
-
-set hlsearch " allows you to search for word under curso with*
-
-" <F3> redraws the screen and removes any search highlighting.
-nnoremap <F3> :set hlsearch!<CR>
-
-" Delete buffer without closing script
-nnoremap <C-c> :bp\|bd #<CR>
-
-let g:ctrlp_switch_buffer = 't'
-
-" Map F8 to start Tagbar
-nmap <F8> :TagbarToggle<CR>
-
-" Use X clipboard system for peace
-set clipboard=unnamedplus
-
-" disable automatic comment insertion
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" show cpp documentation using cppman by pressing Shift + K
-autocmd FileType cpp set keywordprg=cppman
-
-" This is for vimtex to work nicely with latexmk
-let g:latex_view_general_viewer = 'zathura'
-let g:vimtex_view_method = "zathura"
-
-" Use ctags with CtrlP to jump fast
-nnoremap <leader>. :CtrlPTag<cr>
-
-
-let g:ycm_global_ycm_extra_conf = '~/.dotfiles/.ycm_extra_conf.py'
-let g:ycm_collect_identifiers_from_tags_files = 1
-
-set tags=tags;/
-
-" Provide list of definitions to jump to if multiple. Else, jump to one
-nnoremap <C-]> g<C-]>
-
-
-" use ctrlP to jump to defintinions
-nnoremap <leader>. :CtrlPTag<cr>
-
-" set relative number - for current line show absolute
-set number relativenumber
-
-" Although relative line numbers are helpful when moving around in normal mode,
-" absolute line numbers are more suited for insert mode. When the buffer doesn’t
-" have focus, it’d also be more useful to show absolute line numbers.
-" For example, when running tests from a seperate terminal split, it’d make more
-" sense to be able to see which test is on which absolute line number.
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
-
-" Store all swap files in this directory. ^= checks first
-set directory^=$HOME/.vim/swapfiles//
-
-" Wrap text at 80 chars for tex files
-au BufRead,BufNewFile *.tex setlocal textwidth=80
+" different indent settings for python 
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4

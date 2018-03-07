@@ -1,1 +1,2 @@
+# Because we don't wanna copy the .vim. That comes from the plugin manager itself
 vim/.vim/*
