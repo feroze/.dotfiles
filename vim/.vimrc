@@ -56,7 +56,7 @@ endif
 
 
 " ---
-Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 " Add the list of wikis into ~/.vimrc_wikis using below syntax
 "let g:vimwiki_list = [
 "                        \{'path': '~/wiki1/', 'syntax': 'markdown'},
@@ -126,7 +126,7 @@ nnoremap <C-H> <C-W><C-H>
 " vim settings
 
 set directory^=$HOME/.vim/swapfiles// " Create swap files in a different tmp directory
-set clipboard=unnamedplus " Use X system clipboard directly for peace of mind
+set clipboard^=unnamed,unnamedplus  " Use X system clipboard directly for peace of mind
 
 " Filetype specific settings
 
