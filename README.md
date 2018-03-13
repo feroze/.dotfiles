@@ -63,6 +63,10 @@ cd ~/.vim/bundle/YouCompleteMe
 
 Read through .vimrc to understand shortcuts and settings
 
+
+Install vim.nox-py and do sudo update-alternatives --set vim
+This is needed to use vim-ros plugin and has +python2
+
 # Requirements
 - Be able to quickly find the definitions of a method anywhere in the project
 folder
