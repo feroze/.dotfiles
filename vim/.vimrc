@@ -27,6 +27,9 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Automatic status line
+let g:airline_section_y = '' " Don't show file encoding details
+
+
 
 Plug 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=256
