@@ -48,6 +48,15 @@ Plug 'junegunn/fzf.vim'
 " Use :Files to search for files
 " Use :Commits to search for commits using fugitive
 
+function! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
+" If :ProjectFiles is called, set git project root as pwd to help search better
+command! ProjectFiles execute 'Files' s:find_git_root()
+" Assign Ctrl-P to it
+nnoremap <C-p> :ProjectFiles<CR>
+
 Plug 'mileszs/ack.vim'
 if executable('ag')
   let g:ackprg = 'ag'
@@ -72,6 +81,10 @@ endif
 
 Plug 'tpope/vim-fugitive'
 " Use :Gblame to see last change
+" Use :Gstatus to see git status and press - to toggle staging of files
+
+Plug 'taketwo/vim-ros'
+" Automagically enable :A to work
 
 Plug 'airblade/vim-gitgutter'
 "jump to next hunk (change): ]c
@@ -80,6 +93,7 @@ Plug 'airblade/vim-gitgutter'
 "stage the hunk with <Leader>hs or
 "undo it with <Leader>hu.
 
+"Plug 'Valloric/YouCompleteMe'
 
 call plug#end() " End of plugin loads
 
@@ -109,6 +123,7 @@ set shiftround            " always indent/outdent to the nearest tabstop
 set expandtab             " use spaces instead of tabs
 set smarttab              " use tabs at the start of a line, spaces elsewhere
 set nowrap                " don't wrap text
+set mouse=a               " Enable mouse in all modes
 
 " disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
