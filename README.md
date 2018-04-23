@@ -1,12 +1,13 @@
 # Feroze's dotfiles
 
+This repo is a testament to my laziness. May your keystrokes be few and
+productivity plenty.
+
 ## Install
 
 ```bash
 git clone --recursive https://github.com/feroze/.dotfiles ~/.dotfiles
 ```
-
-Then, go to /workflow to understand tools
 
 ## About
 
@@ -63,9 +64,32 @@ cd ~/.vim/bundle/YouCompleteMe
 
 Read through .vimrc to understand shortcuts and settings
 
-
-Install vim.nox-py and do sudo update-alternatives --set vim
+Install vim-gtk-py2 and do sudo update-alternatives --set vim
 This is needed to use vim-ros plugin and has +python2
+
+Inspiration : https://statico.github.io/vim3.html
+
+# TLDR
+
+## File finding and opening
+fzf for finding files
+
+## String searching in files
+ack.vim + ag for searching
+
+## Syntax checking
+ALE + clang linting TODO. ALE > Syntastic
+
+## Statuslin
+TODO customize to remove encoding
+
+
+## Version control
+Git-gutter + fugitive
+
+## Buffer jumping
+Bind ; to FZF :Buffers TODO
+
 
 # Requirements
 - Be able to quickly find the definitions of a method anywhere in the project
@@ -91,6 +115,7 @@ use :A to switch to C/CPP header files
 
 Use :Ex to explore file system
 
+
 ## code folding ###
 Then you can toggle folding with za. You can fold everything with zM and unfold everything with zR. zm and zr can be used to get those folds just right
 
@@ -103,6 +128,8 @@ Lots of shortcuts and aliases are there
 Split into two files:
 mi - colormake install
 cm - catkin_make at catkin_ws directory
+
+pushd & popd for navigation
 
 ## dotfiles
 
@@ -121,7 +148,7 @@ source ~/.dotfiles/system.bashrc
 
 ## Multiple computers
 
-Use synergy. 
+Use synergy.
 
 ## File system navigation
 
@@ -132,7 +159,7 @@ nautilus for usual navigation + editing.
 ranger for zooming across files. Not super comfortable with
 deleting files and cut/copy/pasting with ranger
 
-## Multimonitor 
+## Multimonitor
 
 Instead of using xrandr to set the monitor position and orientation everytime,
 
@@ -141,7 +168,6 @@ Use the gnome display to generate the monitors.xml
 Then
 
 sudo cp ~/.config/monitors.xml /var/lib/lightdm/.config/
-
 
 You can try softlinking it after fixing permissions if you want
 
@@ -155,9 +181,7 @@ chrome
 ssh?
 
 # latex
-
 Use vimtex with latexmk which autobuilds the files on save
-
 
 # window manager
 Install i3-gaps, rofi, polybar
@@ -173,3 +197,9 @@ for polybar to work, install fonts and enable bitmap
 sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
 # Clear the font cache
 sudo fc-cache -f -v
+
+# TODO
+- Use fzf + fasd to improve file navigation
+  http://seanbowman.me/blog/fzf-fasd-and-bash-aliases/ and
+  https://github.com/junegunn/fzf/wiki/examples#changing-directory
+
