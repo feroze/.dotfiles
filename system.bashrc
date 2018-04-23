@@ -100,3 +100,45 @@ GIT_STATUS='$(__git_ps1 "(%s)")' # this gets the status of the current repo
 PROMPT_CHAR='\$' # your desired prompt character
 PROMPT_CHAR='λ' # your desired prompt character
 PS1="${GRAY}┌ ${COLOR_W}\w ${COLOR_G}${GIT_STATUS} ${GRAY} \n└> ${PROMPT_CHAR} ${RESET}"
+
+# fasd + fzf
+# http://seanbowman.me/blog/fzf-fasd-and-bash-aliases/
+
+# Use j instead of cd
+eval "$(fasd --init auto)"
+j() {
+    local dir="$(fasd -ld "$@")"
+    [[ -d "$dir" ]] && pushd "$dir"
+}
+complete -d j
+
+# jj helps you jump into 'frequecely' used files
+jj() {
+    local dir
+    dir=$(fasd -Rdl |\
+        sed "s:$HOME:~:" |\
+        fzf --no-sort +m -q "$*" |\
+        sed "s:~:$HOME:")\
+    && pushd "$dir"
+}
+complete -d jj
+
+# fuzzy file find
+jd() {
+    local dir
+    dir=$(find ${1:-*} -path '*/\.*'\
+        -prune -o -type d\
+        -print 2> /dev/null | fzf +m)
+    [ -d "$dir" ] && pushd "$dir"
+}
+complete -d jd
+
+# cd into directory of the fuzzy file find
+jf() {
+    local file
+    local dir
+    file=$(fzf +m -q "$1")\
+        && dir=$(dirname "$file")
+    [ -d "$dir" ] && pushd "$dir"
+}
+complete -f jf

@@ -1,15 +1,5 @@
-# Feroze's dotfiles
-
 This repo is a testament to my laziness. May your keystrokes be few and
 productivity plenty.
-
-## Install
-
-```bash
-git clone --recursive https://github.com/feroze/.dotfiles ~/.dotfiles
-```
-
-## About
 
 Repo used to setup machines, track dotfiles, and stay on top my shortcuts
 tools - i3, vim, git, ROS
@@ -19,10 +9,11 @@ New computer:
 - run setup script
 - If using gnome, install gnome-tweak-tool and add caps as an additional esc
 
-### Setup ###
+# Installation
 
-read workflow/vim/setup.md
-read workflow/window_manager.md
+```bash
+git clone --recursive https://github.com/feroze/.dotfiles ~/.dotfiles
+```
 
 install ros
 install git, add following to ~/.gitconfig:
@@ -32,27 +23,23 @@ install git, add following to ~/.gitconfig:
   path = ~/.dotfiles/.gitconfig
 ```
 
+## dotfiles
 
-## TODO ##
-Add vim shortcut/plugin for jump to definition in source
+install gnu stow
+sudo apt install stow
 
-try out keynav - navigate window gui using just keyboard
+Then
+cd .dotfiles
+stow vim
+stow i3
 
-Add YCM binding for witching to Header files GoTo
-
-map ctrl + " + y to y in vim
-
-Ubuntu dfeault is ubuntu mono regular
-
-Learn to use ctags with goto definitions & 
-add a way of referencing cpp methods inside vim
-
-network – Don’t press available to all users
-enable middle click
+For .bashrc customizations,
+add following lines to the existing .bashrc:
+source ~/.dotfiles/git.bashrc
+source ~/.dotfiles/system.bashrc
 
 ## vim
 
-# Setup
 Install vim8 from PPA
 
 After cloning the dotfiles repo recursively to install submodules, launch vim and type
@@ -62,10 +49,14 @@ Compile YCM and add ycm_config_file:
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 
-Read through .vimrc to understand shortcuts and settings
-
 Install vim-gtk-py2 and do sudo update-alternatives --set vim
 This is needed to use vim-ros plugin and has +python2
+
+# Workflow
+# vim
+
+Read through .vimrc to understand shortcuts and settings
+
 
 Inspiration : https://statico.github.io/vim3.html
 
@@ -89,7 +80,6 @@ Git-gutter + fugitive
 
 ## Buffer jumping
 Bind ; to FZF :Buffers TODO
-
 
 # Requirements
 - Be able to quickly find the definitions of a method anywhere in the project
@@ -131,20 +121,6 @@ cm - catkin_make at catkin_ws directory
 
 pushd & popd for navigation
 
-## dotfiles
-
-install gnu stow
-sudo apt install stow
-
-Then
-cd .dotfiles
-stow vim
-stow i3
-
-For .bashrc customizations,
-add following lines to the existing .bashrc:
-source ~/.dotfiles/git.bashrc
-source ~/.dotfiles/system.bashrc
 
 ## Multiple computers
 
@@ -195,6 +171,7 @@ for polybar to work, install fonts and enable bitmap
 
 # "Un-disable" bitmap fonts
 sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
+
 # Clear the font cache
 sudo fc-cache -f -v
 
@@ -202,4 +179,20 @@ sudo fc-cache -f -v
 - Use fzf + fasd to improve file navigation
   http://seanbowman.me/blog/fzf-fasd-and-bash-aliases/ and
   https://github.com/junegunn/fzf/wiki/examples#changing-directory
+
+Add vim shortcut/plugin for jump to definition in source
+
+try out keynav - navigate window gui using just keyboard
+
+Add YCM binding for witching to Header files GoTo
+
+map ctrl + " + y to y in vim
+
+Ubuntu dfeault is ubuntu mono regular
+
+Learn to use ctags with goto definitions & 
+add a way of referencing cpp methods inside vim
+
+network – Don’t press available to all users
+enable middle click
 
