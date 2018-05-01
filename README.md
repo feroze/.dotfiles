@@ -11,10 +11,10 @@ tools - i3, vim, git, ROS
   * [dotfiles](#dotfiles)
 * [vim](#vim)
   * [Essentials](#essentials)
-  * [Useful shortcuts](#useful-shortcuts)
+  * [Shortcuts](#shortcuts)
 * [bash](#bash)
 * [ROS](#ros)
-  * [Useful shortcuts](#useful-shortcuts-1)
+  * [Useful shortcuts](#useful-shortcuts)
 * [Misc notes](#misc-notes)
 * [Proxy](#proxy)
 * ["Un-disable" bitmap fonts](#un-disable-bitmap-fonts)
@@ -58,13 +58,10 @@ source ~/.dotfiles/system.bashrc
 
 # vim
 
-Install vim8 from PPA
-Read through .vimrc to understand shortcuts and settings
-
-Install vim-gtk-py2 and do sudo update-alternatives --set vim
-This is needed to use vim-ros plugin and has +python2
-
-Inspiration : https://statico.github.io/vim3.html
+- Add vim8 PPA. Install vim-gtk-py2 for +python2 support
+- Set correct vim using `sudo update-alternatives --set vim`
+- Read through .vimrc to understand keyboard commands and settings
+- Inspiration: https://statico.github.io/vim3.html
 
 ## Essentials
 - File opening: fzf
@@ -73,7 +70,7 @@ Inspiration : https://statico.github.io/vim3.html
 - Smart code editing: YCM, ALE syntax checker
 - Git integration: Fugitive and git gutter
 
-## Useful shortcuts
+## Shortcuts
 
 - Ctrl-t to come back to original.
 - CTRL-T is working with tags stack
