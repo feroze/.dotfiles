@@ -4,6 +4,28 @@ productivity plenty.
 Repo used to setup machines, track dotfiles, and stay on top my shortcuts
 tools - i3, vim, git, ROS
 
+
+<!-- vim-markdown-toc GFM -->
+
+* [Installation](#installation)
+  * [dotfiles](#dotfiles)
+* [vim](#vim)
+  * [Essentials](#essentials)
+  * [Shortcuts](#shortcuts)
+  * [Shortcuts](#shortcuts-1)
+  * [bash](#bash)
+  * [Multiple computers](#multiple-computers)
+  * [File system navigation](#file-system-navigation)
+  * [Multimonitor](#multimonitor)
+* [Proxy](#proxy)
+* [latex](#latex)
+* [window manager](#window-manager)
+* ["Un-disable" bitmap fonts](#un-disable-bitmap-fonts)
+* [Clear the font cache](#clear-the-font-cache)
+* [TODO](#todo)
+
+<!-- vim-markdown-toc -->
+
 New computer:
 
 - run setup script
@@ -15,7 +37,6 @@ New computer:
 git clone --recursive https://github.com/feroze/.dotfiles ~/.dotfiles
 ```
 
-install ros
 install git, add following to ~/.gitconfig:
 
 ```INI
@@ -38,62 +59,25 @@ add following lines to the existing .bashrc:
 source ~/.dotfiles/git.bashrc
 source ~/.dotfiles/system.bashrc
 
-## vim
+# vim
 
 Install vim8 from PPA
-
-After cloning the dotfiles repo recursively to install submodules, launch vim and type
-:PlugInstall
-
-Compile YCM and add ycm_config_file:
-cd ~/.vim/bundle/YouCompleteMe
-./install.py --clang-completer
+Read through .vimrc to understand shortcuts and settings
 
 Install vim-gtk-py2 and do sudo update-alternatives --set vim
 This is needed to use vim-ros plugin and has +python2
 
-# Workflow
-# vim
-
-Read through .vimrc to understand shortcuts and settings
-
-
 Inspiration : https://statico.github.io/vim3.html
 
-# TLDR
+## Essentials
+- File opening: fzf
+- File string searching: Ack + ag
+- Usability: Airline status bar
+- Smart code editing: YCM, ALE syntax checker
+- Internals: Plug plugin manager
+- Git integration: Fugitive and git gutter
 
-## File finding and opening
-fzf for finding files
-
-## String searching in files
-ack.vim + ag for searching
-
-## Syntax checking
-ALE + clang linting TODO. ALE > Syntastic
-
-## Statuslin
-TODO customize to remove encoding
-
-
-## Version control
-Git-gutter + fugitive
-
-## Buffer jumping
-Bind ; to FZF :Buffers TODO
-
-# Requirements
-- Be able to quickly find the definitions of a method anywhere in the project
-folder
-- Use git effectively inside vim and stage hunks and do diffs
-
-# Usage
-
-Use ctags for jumping
-
-generate ctags. have a script to do it?
-bashrc?
-
-then, press ctrl-]. This has been remapped to open a list if multiple are found
+## Shortcuts
 
 use Ctrl-t to come back to original.
 Ctrl-O
@@ -104,10 +88,6 @@ CTRL-O is working with jumplist
 use :A to switch to C/CPP header files
 
 Use :Ex to explore file system
-
-
-## code folding ###
-Then you can toggle folding with za. You can fold everything with zM and unfold everything with zR. zm and zr can be used to get those folds just right
 
 ## Shortcuts ##
 cd $(fn *str*) will go to first occurence
@@ -120,7 +100,6 @@ mi - colormake install
 cm - catkin_make at catkin_ws directory
 
 pushd & popd for navigation
-
 
 ## Multiple computers
 
