@@ -5,15 +5,11 @@ alias m4="colormake -j4; notify-send 'Make finished!'"
 alias m13="colormake -j13; notify-send 'Make finished!'"
 alias mc="make clean"
 
-#alias cm="cd ~/catkin_ws/; catkin_make; cd -"
-#alias cb="cd ~/catkin_ws/; catkin build; cd -"
-#alias cc="cd ~/catkin_ws/; catkin clean -y; cd -"
-
 alias fn="find -name"
 
 # get rid of command not found
 alias cd..='cd ..'
- 
+
 # a quick way to get out of current directory
 alias ..='cd ..'
 alias ...='cd ../../../'
@@ -35,8 +31,6 @@ alias p='ps ax | grep -v grep | grep -i'
 # Manage source files
 alias b='vim ~/.bashrc'
 alias sb='source ~/.bashrc'
-
-
 alias vimrc='vim ~/.vimrc'
 
 # Make caps and extra esc
@@ -104,6 +98,8 @@ PS1="${GRAY}┌ ${COLOR_W}\w ${COLOR_G}${GIT_STATUS} ${GRAY} \n└> ${PROMPT_CHA
 # fasd + fzf
 # http://seanbowman.me/blog/fzf-fasd-and-bash-aliases/
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 # Use j instead of cd
 eval "$(fasd --init auto)"
 j() {
@@ -142,3 +138,29 @@ jf() {
     [ -d "$dir" ] && pushd "$dir"
 }
 complete -f jf
+
+# find files
+function ff () { find . -name "$@" ; }
+
+# ROS shortcuts
+
+alias cb='catkin build -sc'
+alias cc='catkin clean -y'
+cbt() {
+    catkin build "$1" --catkin-make-args run_tests
+}
+alias w='~/bin/select_workspace.py && sb'
+
+# git aliases
+
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias go='git checkout '
+alias gk='gitk --all&'
+alias gx='gitx --all'
+
+alias got='git '
+alias get='git '

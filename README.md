@@ -15,9 +15,6 @@ tools - i3, vim, git, ROS
 * [ROS](#ros)
   * [Useful shortcuts](#useful-shortcuts)
 * [Misc notes](#misc-notes)
-* [Proxy](#proxy)
-* ["Un-disable" bitmap fonts](#un-disable-bitmap-fonts)
-* [Clear the font cache](#clear-the-font-cache)
 * [TODO](#todo)
 
 <!-- vim-markdown-toc -->
@@ -102,27 +99,14 @@ pushd & popd for navigation
 - keyboard controlled mouse: keynav
 - Multimonitor: Use the gnome display to generate the monitors.xml and copy
   config to lightdm sudo cp ~/.config/monitors.xml /var/lib/lightdm/.config/
-
-# Proxy
-You need to configure
-- .gitconfig
-- .curlrc
-- firefox
-- chrome
-- ssh?
-
-# "Un-disable" bitmap fonts
-sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
-
-# Clear the font cache
-sudo fc-cache -f -v
+- Enable bitmap fonts for polybar `sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf`
+- Clear the font cache `sudo fc-cache -f -v`
+- Proxy files configs: .gitconfig, .curlrc, firefox, chrome, ssh?
 
 # TODO
 - Use fzf + fasd to improve file navigation
   http://seanbowman.me/blog/fzf-fasd-and-bash-aliases/ and
   https://github.com/junegunn/fzf/wiki/examples#changing-directory
-
 - Add vim shortcut/plugin for jump to definition in source
 - Add YCM binding for witching to Header files GoTo
-
 - Roll all setup into setupComputer.sh - worth the time?

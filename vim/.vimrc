@@ -28,8 +28,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Automatic status line
 let g:airline_section_y = '' " Don't show file encoding details
-
-
+" air-line
+let g:airline_powerline_fonts = 1
+" vim-airline customization
 
 Plug 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=256
@@ -60,9 +61,11 @@ command! ProjectFiles execute 'Files' s:find_git_root()
 " Assign Ctrl-P to it
 nnoremap <C-p> :ProjectFiles<CR>
 
+nmap ; :Buffers<CR> " press ; to see buffer list
+
 Plug 'mileszs/ack.vim'
 if executable('ag')
-  let g:ackprg = 'ag'
+  let g:ackprg = 'ag --vimgrep'
 endif
 " Use :Ack [options] {pattern} [{directories}]
 
@@ -85,6 +88,7 @@ endif
 Plug 'tpope/vim-fugitive'
 " Use :Gblame to see last change
 " Use :Gstatus to see git status and press - to toggle staging of files
+" Use :windo Gw to commit current file
 
 Plug 'taketwo/vim-ros'
 " Automagically enable :A to work
@@ -97,6 +101,16 @@ Plug 'airblade/vim-gitgutter'
 "undo it with <Leader>hu.
 
 "Plug 'Valloric/YouCompleteMe'
+
+Plug 'junegunn/vim-easy-align'
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+Plug 'mzlogin/vim-markdown-toc'
+
+"Plug 'mhinz/vim-startify'
 
 call plug#end() " End of plugin loads
 
