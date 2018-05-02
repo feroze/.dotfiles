@@ -7,8 +7,7 @@ tools - i3, vim, git, ROS
 
 <!-- vim-markdown-toc GFM -->
 
-* [Installation](#installation)
-  * [dotfiles](#dotfiles)
+* [Setup](#setup)
 * [vim](#vim)
   * [Essentials](#essentials)
   * [Shortcuts](#shortcuts)
@@ -23,25 +22,22 @@ tools - i3, vim, git, ROS
 
 <!-- vim-markdown-toc -->
 
-New computer:
 
-- run setup script
-- If using gnome, install gnome-tweak-tool and add caps as an additional esc
+# Setup
 
-# Installation
+- Clone dotfiles and setup essential software
 
-```bash
-git clone --recursive https://github.com/feroze/.dotfiles ~/.dotfiles
+```
+git clone --recursive https://github.com/feroze/.dotfiles ~/.dotfiles`
+~/.dotfiles/setupComputer.sh
 ```
 
-install git, add following to ~/.gitconfig:
+- Install git, add following to ~/.gitconfig:
 
-```INI
+```
 [include]
   path = ~/.dotfiles/.gitconfig
 ```
-
-## dotfiles
 
 ```
 install gnu stow
@@ -51,10 +47,12 @@ stow vim
 stow i3
 ```
 
-For .bashrc customizations,
-add following lines to the existing .bashrc:
+- For .bashrc customizations, add following lines to the existing .bashrc:
+```
 source ~/.dotfiles/git.bashrc
 source ~/.dotfiles/system.bashrc
+```
+- If using gnome, install gnome-tweak-tool and add caps as an additional esc
 
 # vim
 
@@ -126,3 +124,5 @@ sudo fc-cache -f -v
 
 - Add vim shortcut/plugin for jump to definition in source
 - Add YCM binding for witching to Header files GoTo
+
+- Roll all setup into setupComputer.sh - worth the time?

@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # This was written for ubuntu 16.04
+# TODO check for ubuntu
 
-read -p 'update repo? (Y/n) ' -n 1 confirmation                                                                                     
+read -p 'update repo? (Y/n) ' -n 1 confirmation
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
 sudo apt-get update
 fi
@@ -10,20 +11,20 @@ fi
 ###
 echo " "
 
-read -p 'Install chrome? (Y/n) ' -n 1 confirmation                                                                                     
+read -p 'Install chrome? (Y/n) ' -n 1 confirmation
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
 
 	wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 # write script to delete if google-chrome.list already exists
 	sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 	sudo apt-get update
-	sudo apt-get install -y google-chrome-stable           
+	sudo apt-get install -y google-chrome-stable
 fi
 
 ###
 echo " "
 
-read -p 'Upgrade computer? (Y/n) ' -n 1 confirmation                                                                                     
+read -p 'Upgrade computer? (Y/n) ' -n 1 confirmation
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
 	sudo apt-get update
 	sudo apt-get upgrade
@@ -32,7 +33,7 @@ fi
 ###
 echo " "
 
-read -p 'Install dev softwares? (Y/n) ' -n 1 confirmation                                                                                     
+read -p 'Install dev softwares? (Y/n) ' -n 1 confirmation
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
 	sudo apt-get install -y git tmux ipython python-pip curl vim-gnome gdb colormake build-essential cmake python-dev exuberant-ctags xsel
 fi
@@ -40,7 +41,7 @@ fi
 ###
 echo " "
 
-read -p 'Install system tools+media softwares? (Y/n) ' -n 1 confirmation                                                                                     
+read -p 'Install system tools+media softwares? (Y/n) ' -n 1 confirmation
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
 	sudo apt-get install -y dconf-tools powertop htop vlc shutter gimp
 fi
@@ -48,7 +49,7 @@ fi
 ###
 echo " "
 
-read -p 'Install Java 8? (Y/n) ' -n 1 confirmation                                                                                     
+read -p 'Install Java 8? (Y/n) ' -n 1 confirmation
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
@@ -59,7 +60,7 @@ fi
 ###
 echo " "
 
-read -p 'Install Ag Silversearcher? (Y/n) ' -n 1 confirmation                                                                                     
+read -p 'Install Ag Silversearcher? (Y/n) ' -n 1 confirmation
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
 	sudo apt-get install -y silversearcher-ag
 fi
@@ -67,7 +68,7 @@ fi
 ###
 echo " "
 
-read -p 'Link system.bashrc and git.bashrc to ~/.bashrc? (Y/n) ' -n 1 confirmation                                                                                     
+read -p 'Link system.bashrc and git.bashrc to ~/.bashrc? (Y/n) ' -n 1 confirmation
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
   echo "source ~/.dotfiles/system.bashrc" >> ~/.bashrc
   echo "source ~/.dotfiles/git.bashrc" >> ~/.bashrc
@@ -76,7 +77,7 @@ fi
 ###
 echo " "
 
-read -p 'setup git scripts? (Y/n)' -n 1 confirmation                                                                                     
+read -p 'setup git scripts? (Y/n)' -n 1 confirmation
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
   echo "GIT_SCRIPTS="$HOME/.dotfiles/git_scripts"" >> ~/.bashrc
   #echo "PATH="$PATH:$GIT_SCRIPTS"" >> ~/.bashrc
@@ -85,7 +86,7 @@ fi
 ###
 echo " "
 
-read -p 'Install thefuck for auto fixing errors? (Y/n)' -n 1 confirmation                                                                                     
+read -p 'Install thefuck for auto fixing errors? (Y/n)' -n 1 confirmation
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
   sudo apt update
   sudo apt install python3-dev python3-pip
@@ -95,7 +96,7 @@ fi
 ###
 echo " "
 
-read -p 'Install i3-gaps dependencies and rofi? (Y/n)' -n 1 confirmation                                                                                     
+read -p 'Install i3-gaps dependencies and rofi? (Y/n)' -n 1 confirmation
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
   sudo apt-get install i3
   sudo add-apt-repository ppa:aguignard/ppa
@@ -104,13 +105,10 @@ if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
   sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm-dev
 fi
 
-
-#TODO install autolock
- 
 ###
 echo " "
 
-read -p 'Install dupeGuru? (Y/n)' -n 1 confirmation                                                                                     
+read -p 'Install dupeGuru? (Y/n)' -n 1 confirmation
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
   sudo apt-add-repository ppa:hsoft/ppa
   sudo apt-get update
@@ -119,3 +117,5 @@ fi
 
 
 gsettings set org.gnome.desktop.background show-desktop-icons false
+
+#TODO install autolock
