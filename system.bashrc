@@ -1,3 +1,4 @@
+# better file building
 alias mi="colormake install; notify-send 'Make finished!'"
 alias mi4="colormake install -j4; notify-send 'Make finished!'"
 alias m="colormake; notify-send 'Make finished!'"
@@ -21,12 +22,11 @@ alias .5='cd ../../../../..'
 ## correct tmux colors for 256
 alias tmux='tmux -2'
 
-alias quit='exit'
-alias q='exit'
-
 # useful shortcuts
 alias r='ranger'
 alias p='ps ax | grep -v grep | grep -i'
+alias quit='exit'
+alias q='exit'
 
 # Manage source files
 alias b='vim ~/.bashrc'
@@ -35,7 +35,6 @@ alias vimrc='vim ~/.vimrc'
 
 # Make caps and extra esc
 alias caps='setxkbmap -option caps:escape'
-
 
 # Alias for personal logs
 alias devlog="~/.dotfiles/scripts/log.bash devlog"
@@ -47,7 +46,6 @@ alias "c=xclip"
 alias "v=xclip -o"
 
 # Extract any archive
-
 extract () {
    if [ -f $1 ] ; then
        case $1 in
@@ -71,16 +69,13 @@ extract () {
 
 export HISTFILESIZE=20000
 export HISTSIZE=10000
-shopt -s histappend
-# Combine multiline commands into one in history
-shopt -s cmdhist
+shopt -s histappend # append to history file instead of overwriting
+shopt -s cmdhist # Combine multiline commands into one in history
 # Ignore duplicates, ls without options and builtin commands
 #HISTCONTROL=ignoredups
 export HISTIGNORE="&:ls:[bf]g:exit" # Ignore ls and exit
 
 eval $(thefuck --alias)
-# You can use whatever you want as an alias, like for Mondays:
-eval $(thefuck --alias FUCK)
 
 # customized prompter (add these to your ~/.bash_profile or ~/.bashrc)
 GRAY='\[\033[1;30m\]'    # gray color
@@ -96,12 +91,11 @@ PROMPT_CHAR='λ' # your desired prompt character
 PS1="${GRAY}┌ ${COLOR_W}\w ${COLOR_G}${GIT_STATUS} ${GRAY} \n└> ${PROMPT_CHAR} ${RESET}"
 
 # fasd + fzf
-# http://seanbowman.me/blog/fzf-fasd-and-bash-aliases/
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+eval "$(fasd --init auto)"
 
 # Use j instead of cd
-eval "$(fasd --init auto)"
 j() {
     local dir="$(fasd -ld "$@")"
     [[ -d "$dir" ]] && pushd "$dir"
