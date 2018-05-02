@@ -13,7 +13,6 @@ tools - i3, vim, git, ROS
   * [Shortcuts](#shortcuts)
 * [bash](#bash)
 * [ROS](#ros)
-  * [Useful shortcuts](#useful-shortcuts)
 * [Misc notes](#misc-notes)
 * [TODO](#todo)
 
@@ -86,11 +85,11 @@ pushd & popd for navigation
 
 # ROS
 
-## Useful shortcuts
 - roscd
-- clean workspace: cc
-- build workspace: cb
-- build test: cbt <package_name>
+- cc: clean workspace
+- cb: build workspace
+- cbt <package> build test for package name
+- rosed <package> <file>: directly edit file in package
 
 # Misc notes
 - Multiple computers mouse + keyboard sharing: synergy
