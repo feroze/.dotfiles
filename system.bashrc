@@ -145,6 +145,15 @@ cbt() {
 }
 alias w='~/bin/select_workspace.py && sb'
 
+bag_time() {
+  for f in *.bag
+  do
+    echo -n $f " "
+    rosbag info $f -yk duration
+  done
+}
+
+
 # git aliases
 
 alias gs='git status '

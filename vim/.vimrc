@@ -91,7 +91,7 @@ Plug 'tpope/vim-fugitive'
 " Use :windo Gw to commit current file
 
 Plug 'taketwo/vim-ros'
-" Automagically enable :A to work
+" Automagically enable :A to work for ros cpp
 
 Plug 'airblade/vim-gitgutter'
 "jump to next hunk (change): ]c
@@ -100,7 +100,16 @@ Plug 'airblade/vim-gitgutter'
 "stage the hunk with <Leader>hs or
 "undo it with <Leader>hu.
 
-"Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
+let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
+let g:ycm_complete_in_comments=1 " turn on completion in comments
+"" load ycm conf by default
+"let g:ycm_confirm_extra_conf=0
+let g:ycm_collect_identifiers_from_tags_files=1 " turn on tag completion
+set completeopt-=preview " only show completion as a list instead of a sub-window
+let g:ycm_min_num_of_chars_for_completion=1 " start completion from the first character
+let g:ycm_cache_omnifunc=0 " don't cache completion items
+let g:ycm_seed_identifiers_with_syntax=1 " complete syntax keywords
 
 Plug 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode (e.g. vipga)
