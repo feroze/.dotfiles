@@ -5,7 +5,6 @@ cd ~/$1/
 TODAY="$(date +%w)"
 WEEKNUM="$(date +%W)"
 FILENAME="week-$WEEKNUM.md"
-#echo "${FILENAME}"
 
 HEADER="$(date +%d-%b-%y)"
 
