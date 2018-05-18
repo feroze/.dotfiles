@@ -65,7 +65,7 @@ nmap ; :Buffers<CR> " press ; to see buffer list
 
 Plug 'mileszs/ack.vim'
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+  let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 " Use :Ack [options] {pattern} [{directories}]
 
@@ -73,15 +73,11 @@ endif
 " ---
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 " Add the list of wikis into ~/.vimrc_wikis using below syntax
-"let g:vimwiki_list = [
-"                        \{'path': '~/wiki1/', 'syntax': 'markdown'},
-"                        \{'path': '~/wiki2/', 'syntax': 'markdown'},
-"                \]
-
 " Use ,ww to open first wiki in list
 if !empty(glob("~/.vimrc_wikis"))
   source ~/.vimrc_wikis
 endif
+
 
 " # Integrations for external apps
 
