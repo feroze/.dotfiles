@@ -19,6 +19,10 @@ Plug 'lervag/vimtex'
 " Use \ll to autorun latex commands using latexmk
 " You still need latexmkrc
 
+Plug 'rhysd/vim-clang-format'
+let g:clang_format#auto_format = 1
+let g:clang_format#command = 'clang-format-3.9'
+
 " # interface and IDE elements
 
 Plug 'majutsushi/tagbar'
