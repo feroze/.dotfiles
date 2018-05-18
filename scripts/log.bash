@@ -5,6 +5,16 @@ cd ~/$1/
 TODAY="$(date +%w)"
 WEEKNUM="$(date +%W)"
 FILENAME="week-$WEEKNUM.txt" # for dropbox edit
+YEAR="$(date +%Y)"
+
+# Year directory doesn't exist
+if [ ! -d "$YEAR" ]; then
+  mkdir $YEAR
+fi
+
+cd $YEAR/
+
+FILENAME="week-$WEEKNUM.md"
 
 HEADER="$(date +%d-%b-%y)"
 
@@ -21,7 +31,7 @@ if [ ! -f $FILENAME ]; then
 else
   FILELASTMODIFIED="$(date -r $FILENAME +%w)"
     #echo "TODAY=$TODAY FILELASTMODIFIED=$FILELASTMODIFIED"
-  
+
   if [ $TODAY -ne $FILELASTMODIFIED ]; then
 
     #echo "File was NOT modified today. So append stuff to it."
