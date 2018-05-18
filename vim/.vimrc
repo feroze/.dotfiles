@@ -172,14 +172,13 @@ set clipboard^=unnamed,unnamedplus  " Use X system clipboard directly for peace 
 " Filetype specific settings
 
 " Associate filetypes correctly
-au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
-au BufNewFile,BufFilePre,BufRead *.xtx set filetype=tex
+au BufNewFile,BufFilePre,BufRead *.md,*.txt set filetype=markdown " local hack to enable dropbox edit
 au BufNewFile,BufFilePre,BufRead *.xtx set filetype=tex
 au BufNewFile,BufFilePre,BufRead *.bashrc set filetype=sh
 au BufNewFile,BufReadPost *.ino,*.pde,*.tpp set filetype=cpp
 
 " Wrap text for certain filetypes
-au BufRead,BufNewFile *.tex,*.wiki,*.md setlocal textwidth=80
+au BufRead,BufNewFile *.tex,*.wiki,*.md,*.txt setlocal textwidth=80
 
 " different indent settings for python
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
