@@ -4,7 +4,7 @@ cd ~/$1/
 
 TODAY="$(date +%w)"
 WEEKNUM="$(date +%W)"
-FILENAME="week-$WEEKNUM.md"
+FILENAME="week-$WEEKNUM.txt" # for dropbox edit
 #echo "${FILENAME}"
 
 HEADER="$(date +%d-%b-%y)"
