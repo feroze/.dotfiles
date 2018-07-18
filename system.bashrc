@@ -13,8 +13,8 @@ alias cd..='cd ..'
 
 # a quick way to get out of current directory
 alias ..='cd ..'
-alias ...='cd ../../../'
-alias ....='cd ../../../../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
 alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
@@ -159,6 +159,8 @@ alias gs='git status '
 alias ga='git add '
 alias gb='git branch '
 alias gc='git commit'
+alias gf='git commit --fixup HEAD  && git rebase -i --autosquash HEAD~2'
+alias gfa='git commit -a --fixup HEAD  && git rebase -i --autosquash HEAD~2'
 alias gd='git diff'
 alias go='git checkout '
 alias gk='gitk --all&'
@@ -166,3 +168,7 @@ alias gx='gitx --all'
 
 alias got='git '
 alias get='git '
+
+alias rebase_with_master='git checkout master && git pull && git checkout - && git rebase master'
+
+alias rosrung="rosrun --prefix 'gdb -ex run --args"

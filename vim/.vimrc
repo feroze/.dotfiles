@@ -20,13 +20,14 @@ Plug 'lervag/vimtex'
 " You still need latexmkrc
 
 Plug 'rhysd/vim-clang-format'
-let g:clang_format#auto_format = 1
+"let g:clang_format#auto_format = 1
 let g:clang_format#command = 'clang-format-3.9'
 
 " # interface and IDE elements
 
 Plug 'majutsushi/tagbar'
 " Press F8 to display method names and tags
+nmap <F8> :TagbarToggle<CR>
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -40,6 +41,13 @@ Plug 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=256
 set background=light
 set t_Co=256
+
+" # Buffer Management
+
+Plug 'bling/vim-bufferline'
+" Nice line to show buffer
+
+Plug 'bling/vim-bufferline'
 
 " # Code display and prettifying
 Plug 'bronson/vim-trailing-whitespace'
@@ -60,10 +68,11 @@ function! s:find_git_root()
   return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
 endfunction
 
-" If :ProjectFiles is called, set git project root as pwd to help search better
+" If Ctrl-p is called, set git project root as pwd to help search better
 command! ProjectFiles execute 'Files' s:find_git_root()
-" Assign Ctrl-P to it
 nnoremap <C-p> :ProjectFiles<CR>
+" If Ctrl-p is called, set search inside current directory only
+nnoremap <C-d> :Files<CR>
 
 nmap ; :Buffers<CR> " press ; to see buffer list
 
@@ -182,3 +191,12 @@ au BufRead,BufNewFile *.tex,*.wiki,*.md,*.txt setlocal textwidth=80
 
 " different indent settings for python
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+
+" Firefox like cycling through vim buffers
+nnoremap <Tab> :bnext<CR> " Same as Ctrl-Tab as terminals cant differentiate
+nnoremap <S-Tab> :bprevious<CR>
+
+set backspace=indent,eol,start
+
+" Map ,cd to change directory to current buffer's
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
