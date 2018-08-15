@@ -171,4 +171,4 @@ alias get='git '
 
 alias rebase_with_master='git checkout master && git pull && git checkout - && git rebase master'
 
-alias rosrung="rosrun --prefix 'gdb -ex run --args"
+alias rosrung="rosrun --prefix 'gdb -ex run --args'"
