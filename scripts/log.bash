@@ -3,7 +3,7 @@
 cd ~/$1/
 
 TODAY="$(date +%w)"
-WEEKNUM="$(date +%W)"
+WEEKNUM="$(date +%V)"
 FILENAME="week-$WEEKNUM.txt" # for dropbox edit
 YEAR="$(date +%Y)"
 
