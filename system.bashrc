@@ -138,6 +138,7 @@ function ff () { find . -name "$@" ; }
 # ROS shortcuts
 
 alias cb='catkin build -sc'
+alias cbn='catkin build --no-deps'
 alias cc='catkin clean -y'
 cbt() {
     catkin build "$1" --catkin-make-args run_tests
@@ -172,3 +173,9 @@ alias get='git '
 alias rebase_with_master='git checkout master && git pull && git checkout - && git rebase master'
 
 alias rosrung="rosrun --prefix 'gdb -ex run --args'"
+
+# make + cd build 
+function mcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
+
+# for taskwarrior
+alias t='task'
