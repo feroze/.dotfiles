@@ -14,8 +14,6 @@ fi
 
 cd $YEAR/
 
-FILENAME="week-$WEEKNUM.md"
-
 HEADER="$(date +%d-%b-%y)"
 
 if [ ! -f $FILENAME ]; then
