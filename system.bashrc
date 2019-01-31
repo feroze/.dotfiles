@@ -179,3 +179,6 @@ function mcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
 
 # for taskwarrior
 alias t='task'
+
+# swap cp for rsync w/ progress bar
+alias cp='rsync --archive --progress --partial --human-readable'
