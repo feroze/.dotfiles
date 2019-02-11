@@ -199,4 +199,5 @@ set backspace=indent,eol,start
 " Map ,cd to change directory to current buffer's
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 " Use this instead as <Ctrl+Space is broken>
-nmap <leader>tt <Plug>VimwikiToggleListItem
+" Marks a wiki checkbox as done
+nmap <leader>d <Plug>VimwikiToggleListItem
