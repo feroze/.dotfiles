@@ -44,9 +44,7 @@ set t_Co=256
 
 " # Buffer Management
 
-Plug 'bling/vim-bufferline'
 " Nice line to show buffer
-
 Plug 'bling/vim-bufferline'
 
 " # Code display and prettifying
@@ -200,3 +198,5 @@ set backspace=indent,eol,start
 
 " Map ,cd to change directory to current buffer's
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+" Use this instead as <Ctrl+Space is broken>
+nmap <leader>tt <Plug>VimwikiToggleListItem
