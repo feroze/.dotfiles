@@ -174,6 +174,8 @@ alias rebase_with_master='git checkout master && git pull && git checkout - && g
 
 alias rosrung="rosrun --prefix 'gdb -ex run --args'"
 
+alias ll='ls -alFh'
+
 # make + cd build 
 function mcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
 
@@ -181,4 +183,12 @@ function mcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
 alias t='task'
 
 # swap cp for rsync w/ progress bar
+alias ocp='cp'
 alias cp='rsync --archive --progress --partial --human-readable'
+
+# swap mv for rsync because I don't trust TNEB
+alias omv='mv'
+alias mv='rsync -a -c -v --remove-source-files --progress'
+
+alias wiki='vim -c VimwikiIndex'
+alias master='git checkout master'
