@@ -109,3 +109,4 @@ pushd & popd for navigation
 - Add vim shortcut/plugin for jump to definition in source
 - Add YCM binding for witching to Header files GoTo
 - Roll all setup into setupComputer.sh - worth the time?
+- Add bro pages to list
