@@ -186,9 +186,8 @@ alias t='task'
 alias ocp='cp'
 alias cp='rsync --archive --progress --partial --human-readable'
 
-# swap mv for rsync because I don't trust TNEB
-alias omv='mv'
-alias mv='rsync -a -c -v --remove-source-files --progress'
+# paranoid mv for rsync because I don't trust TNEB
+alias pmv='rsync -a -c -v --remove-source-files --progress'
 
 alias wiki='vim -c VimwikiIndex'
 alias master='git checkout master'
