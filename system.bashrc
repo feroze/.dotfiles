@@ -179,9 +179,6 @@ alias ll='ls -alFh'
 # make + cd build 
 function mcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
 
-# for taskwarrior
-alias t='task'
-
 # swap cp for rsync w/ progress bar
 alias ocp='cp'
 alias cp='rsync --archive --progress --partial --human-readable'
