@@ -97,7 +97,7 @@ Plug 'tpope/vim-fugitive'
 " Use :Gstatus to see git status and press - to toggle staging of files
 " Use :windo Gw to commit current file
 
-Plug 'taketwo/vim-ros'
+"Plug 'taketwo/vim-ros'
 " Automagically enable :A to work for ros cpp
 
 Plug 'airblade/vim-gitgutter'
