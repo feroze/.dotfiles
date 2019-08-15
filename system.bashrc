@@ -180,7 +180,7 @@ alias ll='ls -alFh'
 function mcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
 
 # swap cp for rsync w/ progress bar
-alias ocp='cp'
+alias ocp='/bin/cp'
 alias cp='rsync --archive --progress --partial --human-readable'
 
 # paranoid mv for rsync because I don't trust TNEB
