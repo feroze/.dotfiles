@@ -110,3 +110,5 @@ pushd & popd for navigation
 - Add YCM binding for witching to Header files GoTo
 - Roll all setup into setupComputer.sh - worth the time?
 - Add bro pages to list
+- If Shift+Space is making you jump into insert mode, change the shortcut for
+input methods switching
