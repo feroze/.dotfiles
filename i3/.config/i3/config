@@ -188,13 +188,6 @@ exec xautolock -time 10 -locker '~/.config/i3/fuzzy_lock.sh' & # If computer idl
 
 # Enable floating for certain windows
 for_window [title="opencv-show"] floating enable
-for_window [title="selsurf"] floating enable
-for_window [title="Navio TKA Application - Version 4.1.1"] floating enable
-for_window [title="Navio UKR Application - Version 4.1.1"] floating enable
-for_window [title="Navio PFA Application - Version 4.1.1"] floating enable
-for_window [title="Navio THA Application - Version 4.1.1"] floating enable
-for_window [title="Voxelization Unit Test"] floating enable
-for_window [title="Surface MiniVoxelizer - v2.0"] floating enable
 
 gaps inner 10
 gaps outer 0
