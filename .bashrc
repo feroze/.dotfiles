@@ -113,3 +113,8 @@ source ~/.dotfiles/system.bashrc
 source ~/.dotfiles/git.bashrc
 export GAZEBO_MODEL_PATH=~/rover_workspace/simulation/models
 export GAZEBO_PLUGIN_PATH=:~/rover_workspace/devel/lib/
+
+TIMESTAMP=`date +%Y-%m-%d_%H-%M-%S`
+function log() {
+  "${@:1}" 2>&1 | tee "log-$TIMESTAMP.txt"
+}
