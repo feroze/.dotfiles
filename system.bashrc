@@ -188,3 +188,10 @@ alias pmv='rsync -a -c -v --remove-source-files --progress'
 
 alias wiki='vim -c VimwikiIndex'
 alias master='git checkout master'
+
+# Log / record command output
+function log() { 
+    dt=$(date +%Y-%m-%d-%Hh%Mm%Ss);
+    output_file="$dt-$*.log";
+    script -qc "$*" ~/"$output_file";
+}
