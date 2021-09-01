@@ -182,7 +182,7 @@ alias ll='ls -alFh'
 function mcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
 
 # swap cp for rsync w/ progress bar
-alias ocp='cp'
+alias ocp='/bin/cp'
 alias cp='rsync --archive --progress --partial --human-readable'
 
 # paranoid mv for rsync because I don't trust TNEB
@@ -190,3 +190,10 @@ alias pmv='rsync -a -c -v --remove-source-files --progress'
 
 alias wiki='vim -c VimwikiIndex'
 alias master='git checkout master'
+
+# Log / record command output
+function log() { 
+    dt=$(date +%Y-%m-%d-%Hh%Mm%Ss);
+    output_file="$dt-$*.log";
+    script -qc "$*" ~/"$output_file";
+}
