@@ -191,9 +191,15 @@ alias pmv='rsync -a -c -v --remove-source-files --progress'
 alias wiki='vim -c VimwikiIndex'
 alias master='git checkout master'
 
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=
+HISTFILESIZE=
+
 # Log / record command output
 function log() { 
     dt=$(date +%Y-%m-%d-%Hh%Mm%Ss);
     output_file="$dt-$*.log";
     script -qc "$*" ~/"$output_file";
 }
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
