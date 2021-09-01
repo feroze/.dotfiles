@@ -52,10 +52,8 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Left workspace prev
+bindsym $mod+Right workspace next
 
 # move focused window - vim bindings
 bindsym $mod+Shift+h move left
@@ -176,8 +174,10 @@ exec --no-startup-id compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 #exec --no-startup-id fluxgui // Doesn't work on drivers
-exec --no-startup-id redshift
-exec --no-startup-id megasync
+exec --no-startup-id gtk-redshift
+#exec --no-startup-id megasync
+exec --no-startup-id flameshot
+#exec --no-startup-id spotify
 
 
 # lock on alt+ctrl+l
@@ -195,6 +195,8 @@ for_window [title="Navio PFA Application - Version 4.1.1"] floating enable
 for_window [title="Navio THA Application - Version 4.1.1"] floating enable
 for_window [title="Voxelization Unit Test"] floating enable
 for_window [title="Surface MiniVoxelizer - v2.0"] floating enable
+for_window [title="Figure 1"] floating enable
+for_window [class="Pomello"] floating enable
 
 gaps inner 10
 gaps outer 0
@@ -203,7 +205,7 @@ smart_gaps on
 #exec --no-startup-id ~/.dotfiles/i3/.config/startup_applications.sh
 
 # screenshot
-bindsym Print exec scrot ~/Pictures/%b-%d_%H-%M-%S.png
+bindsym Print exec scrot ~/unsorted/%b-%d_%H-%M-%S.png
 
 # Swap workspaces between monitors
 bindsym $mod+Shift+s exec ~/.dotfiles/i3/.config/i3/i3-display-swap.sh
@@ -214,5 +216,13 @@ exec --no-startup-id volumeicon
 # Disable the annoying horizontal scroll by MX middle-buttons
 exec --no-startup-id xinput set-button-map 12 1 2 3 4 5 0 0
 
-exec --no-startup-id /usr/bin/syncthing -no-browser -home="/lhome/fdheenm/.config/synthing"
+#exec --no-startup-id /usr/bin/syncthing -no-browser -home="/lhome/fdheenm/.config/synthing"
 
+#exec --no-startup-id ~/.local/bin/autokey-gtk
+exec --no-startup-id /usr/bin/obs
+#fake-outputs 2800x2160+0+0, 1040x2160+2800+0
+
+exec --no-startup-id /usr/bin/pasystray
+exec --no-startup-id /home/feroze/.local/bin/autokey-gtk
+exec --no-startup-id /usr/bin/gnome-pomodoro --no-default-window
+exec --no-startup-id /home/feroze/source_builds/activitywatch/aw-qt

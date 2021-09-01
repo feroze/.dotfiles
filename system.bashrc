@@ -170,6 +170,8 @@ alias gx='gitx --all'
 alias got='git '
 alias get='git '
 
+alias gt='git log --tags --simplify-by-decoration --pretty="format:%ai %d"'
+
 alias rebase_with_master='git checkout master && git pull && git checkout - && git rebase master'
 
 alias rosrung="rosrun --prefix 'gdb -ex run --args'"
