@@ -1,49 +1,3 @@
-# better file building
-alias mi="colormake install; notify-send 'Make finished!'"
-alias mi4="colormake install -j4; notify-send 'Make finished!'"
-alias m="colormake; notify-send 'Make finished!'"
-alias m4="colormake -j4; notify-send 'Make finished!'"
-alias m13="colormake -j13; notify-send 'Make finished!'"
-alias mc="make clean"
-
-alias fn="find -name"
-
-# get rid of command not found
-alias cd..='cd ..'
-
-# a quick way to get out of current directory
-alias ..='cd ..'
-alias ...='cd ../../'
-alias ....='cd ../../../'
-alias .....='cd ../../../../'
-alias .4='cd ../../../../'
-alias .5='cd ../../../../..'
-
-## correct tmux colors for 256
-alias tmux='tmux -2'
-
-# useful shortcuts
-alias r='ranger'
-alias p='ps ax | grep -v grep | grep -i'
-alias quit='exit'
-alias q='exit'
-
-# Manage source files
-alias b='vim ~/.bashrc'
-alias sb='source ~/.bashrc'
-alias vimrc='vim ~/.vimrc'
-
-# Make caps and extra esc
-alias caps='setxkbmap -option caps:escape'
-
-# Alias for personal logs
-alias devlog="~/.dotfiles/scripts/log.bash devlog"
-alias journal="~/.dotfiles/scripts/log.bash journal"
-
-# Aliases for xclip
-alias "c=xclip"
-alias "v=xclip -o"
-
 # Extract any archive
 extract () {
    if [ -f $1 ] ; then
@@ -66,15 +20,13 @@ extract () {
    fi
  }
 
-export HISTFILESIZE=20000
-export HISTSIZE=10000
 shopt -s histappend # append to history file instead of overwriting
 shopt -s cmdhist # Combine multiline commands into one in history
 # Ignore duplicates, ls without options and builtin commands
 #HISTCONTROL=ignoredups
 export HISTIGNORE="&:ls:[bf]g:exit" # Ignore ls and exit
 
-eval $(thefuck --alias)
+# eval $(thefuck --alias)
 
 # customized prompter (add these to your ~/.bash_profile or ~/.bashrc)
 GRAY='\[\033[1;30m\]'    # gray color
@@ -91,15 +43,9 @@ PS1="${GRAY}┌ ${COLOR_W}\w ${COLOR_G}${GIT_STATUS} ${GRAY} \n└> ${PROMPT_CHA
 
 # fasd + fzf
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-eval "$(fasd --init auto)"
+ [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# eval "$(fasd --init auto)"
 
-# Use j instead of cd
-j() {
-    local dir="$(fasd -ld "$@")"
-    [[ -d "$dir" ]] && pushd "$dir"
-}
-complete -d j
 
 # jj helps you jump into 'frequecely' used files
 jj() {
@@ -113,14 +59,6 @@ jj() {
 complete -d jj
 
 # fuzzy file find
-jd() {
-    local dir
-    dir=$(find ${1:-*} -path '*/\.*'\
-        -prune -o -type d\
-        -print 2> /dev/null | fzf +m)
-    [ -d "$dir" ] && pushd "$dir"
-}
-complete -d jd
 
 # cd into directory of the fuzzy file find
 jf() {
@@ -154,31 +92,8 @@ bag_time() {
 }
 
 
-# git aliases
 
-alias gs='git status '
-alias ga='git add '
-alias gb='git branch '
-alias gc='git commit'
-alias gf='git commit --fixup HEAD  && git rebase -i --autosquash HEAD~2'
-alias gfa='git commit -a --fixup HEAD  && git rebase -i --autosquash HEAD~2'
-alias gd='git diff'
-alias go='git checkout '
-alias gk='gitk --all&'
-alias gx='gitx --all'
-
-alias got='git '
-alias get='git '
-
-alias gt='git log --tags --simplify-by-decoration --pretty="format:%ai %d"'
-
-alias rebase_with_master='git checkout master && git pull && git checkout - && git rebase master'
-
-alias rosrung="rosrun --prefix 'gdb -ex run --args'"
-
-alias ll='ls -alFh'
-
-# make + cd build 
+# make + cd build
 function mcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
 
 # swap cp for rsync w/ progress bar
@@ -192,14 +107,9 @@ alias wiki='vim -c VimwikiIndex'
 alias master='git checkout master'
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=
-HISTFILESIZE=
-
-# Log / record command output
-function log() { 
-    dt=$(date +%Y-%m-%d-%Hh%Mm%Ss);
-    output_file="$dt-$*.log";
-    script -qc "$*" ~/"$output_file";
-}
+HISTFILESIZE=20000
+HISTSIZE=100000
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+source ~/.dotfiles/system.aliases
