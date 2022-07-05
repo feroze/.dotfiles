@@ -1,3 +1,50 @@
+# better file building
+alias mi="colormake install; notify-send 'Make finished!'"
+alias mi4="colormake install -j4; notify-send 'Make finished!'"
+alias m="colormake; notify-send 'Make finished!'"
+alias m4="colormake -j4; notify-send 'Make finished!'"
+alias m13="colormake -j13; notify-send 'Make finished!'"
+alias mc="make clean"
+
+alias fn="find -name"
+
+# get rid of command not found
+alias cd..='cd ..'
+
+# a quick way to get out of current directory
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+
+## correct tmux colors for 256
+alias tmux='tmux -2'
+
+# useful shortcuts
+alias r='ranger'
+alias p='ps ax | grep -v grep | grep -i'
+alias quit='exit'
+alias q='exit'
+
+# Manage source files
+alias b='vim ~/.bashrc'
+alias sb='source ~/.bashrc'
+alias vimrc='vim ~/.vimrc'
+
+# Make caps and extra esc
+setxkbmap -option caps:escape
+alias caps='setxkbmap -option caps:escape'
+
+# Alias for personal logs
+alias devlog="~/.dotfiles/scripts/log.bash devlog"
+alias journal="~/.dotfiles/scripts/log.bash journal"
+
+# Aliases for xclip
+alias "c=xclip"
+alias "v=xclip -o"
+
 # Extract any archive
 extract () {
    if [ -f $1 ] ; then
