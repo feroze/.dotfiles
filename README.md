@@ -7,53 +7,30 @@ tools - i3, vim, git, ROS
 
 <!-- vim-markdown-toc GFM -->
 
-* [Setup](#setup)
-* [vim](#vim)
-  * [Essentials](#essentials)
-  * [Shortcuts](#shortcuts)
-* [bash](#bash)
-* [ROS](#ros)
-* [Misc notes](#misc-notes)
-* [TODO](#todo)
+- [Setup](#setup)
+- [vim](#vim)
+  - [Essentials](#essentials)
+  - [Shortcuts](#shortcuts)
+- [bash](#bash)
+- [ROS](#ros)
+- [Misc notes](#misc-notes)
 
 <!-- vim-markdown-toc -->
 
 
 # Setup
 
-- Clone dotfiles and setup essential software
+- Clone dotfiles and run setup script (installs packages and stows symlinks):
 
 ```
-git clone --recursive https://github.com/feroze/.dotfiles ~/.dotfiles`
+git clone --recursive https://github.com/feroze/.dotfiles ~/.dotfiles
 ~/.dotfiles/setupComputer.sh
 ```
 
-- Install git, add following to ~/.gitconfig:
 
-```
-[include]
-  path = ~/.dotfiles/.gitconfig
-```
-
-```
-install gnu stow
-sudo apt install stow
-cd .dotfiles
-stow vim
-stow i3
-```
-
-- For .bashrc customizations, add following lines to the existing .bashrc:
-```
-source ~/.dotfiles/git.bashrc
-source ~/.dotfiles/system.bashrc
-```
-- If using gnome, install gnome-tweak-tool and add caps as an additional esc
 
 # vim
 
-- Add vim8 PPA. Install vim-gtk-py2 for +python2 support
-- Set correct vim using `sudo update-alternatives --set vim`
 - Read through .vimrc to understand keyboard commands and settings
 - Inspiration: https://statico.github.io/vim3.html
 
@@ -94,21 +71,6 @@ pushd & popd for navigation
 # Misc notes
 - Multiple computers mouse + keyboard sharing: synergy
 - latex: vimtex + latexmk for autobuilding on save
-- window manager: i3-gaps + rofi + polybar
-- keyboard controlled mouse: keynav
-- Multimonitor: Use the gnome display to generate the monitors.xml and copy
-  config to lightdm sudo cp ~/.config/monitors.xml /var/lib/lightdm/.config/
 - Enable bitmap fonts for polybar `sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf`
 - Clear the font cache `sudo fc-cache -f -v`
 - Proxy files configs: .gitconfig, .curlrc, firefox, chrome, ssh?
-
-# TODO
-- Use fzf + fasd to improve file navigation
-  http://seanbowman.me/blog/fzf-fasd-and-bash-aliases/ and
-  https://github.com/junegunn/fzf/wiki/examples#changing-directory
-- Add vim shortcut/plugin for jump to definition in source
-- Add YCM binding for witching to Header files GoTo
-- Roll all setup into setupComputer.sh - worth the time?
-- Add bro pages to list
-- If Shift+Space is making you jump into insert mode, change the shortcut for
-input methods switching

@@ -1,121 +1,71 @@
 #!/bin/bash
+set -e
 
-# This was written for ubuntu 16.04
-# TODO check for ubuntu
+# This was written for Ubuntu 22.04
 
-read -p 'update repo? (Y/n) ' -n 1 confirmation
+read -p 'Update repos? (Y/n) ' -n 1 confirmation
+echo
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-sudo apt-get update
-fi
-
-###
-echo " "
-
-read -p 'Install chrome? (Y/n) ' -n 1 confirmation
-if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-
-	wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-# write script to delete if google-chrome.list already exists
-	sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-	sudo apt-get update
-	sudo apt-get install -y google-chrome-stable
+	sudo apt update
 fi
 
 ###
 echo " "
 
 read -p 'Upgrade computer? (Y/n) ' -n 1 confirmation
+echo
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-	sudo apt-get update
-	sudo apt-get upgrade
+	sudo apt update
+	sudo apt upgrade
 fi
 
 ###
 echo " "
 
-read -p 'Install dev softwares? (Y/n) ' -n 1 confirmation
+read -p 'Install dev tools? (Y/n) ' -n 1 confirmation
+echo
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-	sudo apt-get install -y git tmux ipython python-pip curl vim-gnome gdb colormake build-essential cmake python-dev exuberant-ctags xsel sshfs
+	sudo apt install -y git tmux curl vim-gtk3 gdb colormake build-essential cmake python3-dev python3-pip universal-ctags xsel sshfs stow
 fi
 
 ###
 echo " "
 
-read -p 'Install system tools+media softwares? (Y/n) ' -n 1 confirmation
+read -p 'Install system tools? (Y/n) ' -n 1 confirmation
+echo
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-	sudo apt-get install -y dconf-tools powertop htop vlc shutter gimp
+	sudo apt install -y htop ranger btop silversearcher-ag
+	pip3 install nvitop
 fi
 
 ###
 echo " "
 
-read -p 'Install Java 8? (Y/n) ' -n 1 confirmation
+read -p 'Link system.bashrc to ~/.bashrc? (Y/n) ' -n 1 confirmation
+echo
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-sudo add-apt-repository ppa:webupd8team/java
-sudo apt-get update
-sudo apt-get install -y oracle-java8-installer
-sudo apt-get install oracle-java8-set-default
+	grep -qxF 'source ~/.dotfiles/system.bashrc' ~/.bashrc || echo 'source ~/.dotfiles/system.bashrc' >> ~/.bashrc
 fi
 
 ###
 echo " "
 
-read -p 'Install Ag Silversearcher? (Y/n) ' -n 1 confirmation
+read -p 'Setup git (scripts + global gitconfig include)? (Y/n) ' -n 1 confirmation
+echo
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-	sudo apt-get install -y silversearcher-ag
+	grep -qxF 'GIT_SCRIPTS="$HOME/.dotfiles/git_scripts"' ~/.bashrc || echo 'GIT_SCRIPTS="$HOME/.dotfiles/git_scripts"' >> ~/.bashrc
+	git config --global include.path ~/.dotfiles/.gitconfig
 fi
 
 ###
 echo " "
 
-read -p 'Link system.bashrc and git.bashrc to ~/.bashrc? (Y/n) ' -n 1 confirmation
+read -p 'Stow dotfile symlinks (vim, tmux, gdb, vscode)? (Y/n) ' -n 1 confirmation
+echo
 if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-  echo "source ~/.dotfiles/system.bashrc" >> ~/.bashrc
-  echo "source ~/.dotfiles/git.bashrc" >> ~/.bashrc
+	cd ~/.dotfiles
+	stow vim
+	stow tmux
+	stow gdb
+	stow vscode
 fi
-
-###
-echo " "
-
-read -p 'setup git scripts? (Y/n)' -n 1 confirmation
-if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-  echo "GIT_SCRIPTS="$HOME/.dotfiles/git_scripts"" >> ~/.bashrc
-  #echo "PATH="$PATH:$GIT_SCRIPTS"" >> ~/.bashrc
-fi
-
-###
-echo " "
-
-read -p 'Install thefuck for auto fixing errors? (Y/n)' -n 1 confirmation
-if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-  sudo apt update
-  sudo apt install python3-dev python3-pip
-  sudo pip3 install thefuck
-fi
-
-###
-echo " "
-
-read -p 'Install i3-gaps dependencies and rofi? (Y/n)' -n 1 confirmation
-if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-  sudo apt-get install i3
-  sudo add-apt-repository ppa:aguignard/ppa
-  sudo apt-get update
-  sudo apt-get install libxcb-xrm-dev
-  sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm-dev
-fi
-
-###
-echo " "
-
-read -p 'Install dupeGuru? (Y/n)' -n 1 confirmation
-if [[ $confirmation != 'n' && $confirmation != 'N' ]]; then
-  sudo apt-add-repository ppa:hsoft/ppa
-  sudo apt-get update
-  sudo apt-get install dupeguru
-fi
-
-
-gsettings set org.gnome.desktop.background show-desktop-icons false
-
-#TODO install autolock

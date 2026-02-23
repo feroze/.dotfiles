@@ -19,9 +19,6 @@ alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 
-## correct tmux colors for 256
-alias tmux='tmux -2'
-
 # useful shortcuts
 alias r='ranger'
 alias p='ps ax | grep -v grep | grep -i'
@@ -48,11 +45,11 @@ alias "v=xclip -o"
 # git aliases
 
 alias gs='git status '
-alias ga='zfix && git add '
+alias ga='git add '
 alias gb='git branch '
 alias gc='git commit'
 alias gf='git commit --fixup HEAD  && git rebase -i --autosquash HEAD~2'
-alias gfa='zfix && git commit -a --fixup HEAD  && git rebase -i --autosquash HEAD~2'
+alias gfa='git commit -a --fixup HEAD  && git rebase -i --autosquash HEAD~2'
 alias gd='git diff'
 alias go='git checkout '
 alias gk='gitk --all&'
